@@ -45,8 +45,6 @@ export default function Navbar() {
       }}
       aria-label="Main navigation"
     >
-      {/* Blue top accent line */}
-      <div style={{ height: '3px', background: 'linear-gradient(90deg, var(--color-primary-dark), var(--color-primary), var(--color-primary-light), var(--color-primary), var(--color-primary-dark))' }} />
 
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '68px' }}>

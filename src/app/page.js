@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import AnimatedSection from '@/components/AnimatedSection';
 import { buildMetadata, breadcrumbSchema } from '@/lib/seo';
+import imgRice from '../../public/assets/basmati-rice.jpg';
+import imgSpices from '../../public/assets/spices.jpg';
+import imgPulses from '../../public/assets/pulses.avif';
+import imgFruits from '../../public/assets/fruits.avif';
 
 export const metadata = buildMetadata({
   title: 'Maheshwari Global Exports | Agricultural Exporter from India | Rice & Spice Export Company',
@@ -13,20 +17,58 @@ const stats = [
   { value: '20+', label: 'Export Markets' },
   { value: '100%', label: 'Quality Verified' },
   { value: '50+', label: 'Product Variants' },
-  { value: '2026', label: 'Founded' },
-];
-
-const features = [
-  { icon: '🛡️', title: 'Verified Supplier Network', desc: 'Every supplier assessed for quality, compliance, and delivery reliability before onboarding.' },
-  { icon: '📦', title: 'Shipment Consistency', desc: 'Approved sample equals delivered product — our non-negotiable operating standard.' },
-  { icon: '🌐', title: 'Global Compliance', desc: 'Full export documentation, phytosanitary, and regulatory compliance for every destination.' },
+  { value: '5+', label: 'Years Experience' },
 ];
 
 const products = [
-  { name: 'Rice', desc: 'Basmati & Non-Basmati', icon: '🌾', path: '/products' },
-  { name: 'Indian Spices', desc: 'Turmeric, Cumin, Chili & More', icon: '🌶️', path: '/products' },
-  { name: 'Pulses & Lentils', desc: 'Cleaned, Graded & Packed', icon: '🫘', path: '/products' },
-  { name: 'Fresh Produce', desc: 'Fruits & Vegetables', icon: '🥭', path: '/products' },
+  {
+    name: 'Rice',
+    desc: 'Basmati & Non-Basmati',
+    tag: 'Top Export',
+    img: imgRice,
+    imgAlt: 'Premium long-grain basmati rice grains in a wooden bowl for export',
+    path: '/products',
+  },
+  {
+    name: 'Indian Spices',
+    desc: 'Turmeric, Cumin, Chili & More',
+    tag: 'Premium',
+    img: imgSpices,
+    imgAlt: 'Colorful Indian spices — red chili, turmeric, coriander, star anise for export',
+    path: '/products',
+  },
+  {
+    name: 'Pulses & Lentils',
+    desc: 'Cleaned, Graded & Packed',
+    tag: 'High Demand',
+    img: imgPulses,
+    imgAlt: 'Raw brown lentils and pulses in bulk for export',
+    path: '/products',
+  },
+  {
+    name: 'Fresh Produce',
+    desc: 'Fruits & Vegetables',
+    tag: 'Seasonal',
+    img: imgFruits,
+    imgAlt: 'Fresh Indian fruits and vegetables for export',
+    path: '/products',
+  },
+];
+
+const whyUs = [
+  { icon: '🛡️', title: 'Verified Suppliers', desc: 'Every supplier evaluated for quality, compliance, and delivery reliability.' },
+  { icon: '📦', title: 'Sample = Shipment', desc: 'Approved sample matches every delivered shipment. No exceptions.' },
+  { icon: '📋', title: 'Full Documentation', desc: 'Phytosanitary, FSSAI, export docs — complete compliance for every destination.' },
+  { icon: '🌍', title: 'Global Reach', desc: 'Serving GCC, Middle East, Africa, and Southeast Asia with structured exports.' },
+  { icon: '⚡', title: 'Fast Turnaround', desc: 'Streamlined sourcing and logistics for responsive, on-time delivery.' },
+  { icon: '🤝', title: 'Long-term Partnerships', desc: 'Built on trust, transparency and a disciplined trade execution model.' },
+];
+
+const markets = [
+  { region: 'GCC', countries: 'UAE · Saudi Arabia · Qatar · Kuwait', color: '#0073e6' },
+  { region: 'Middle East', countries: 'Oman · Bahrain · Jordan · Iraq', color: '#0052b3' },
+  { region: 'Africa', countries: 'Egypt · Kenya · Tanzania · Nigeria', color: '#0073e6' },
+  { region: 'SE Asia', countries: 'Malaysia · Singapore · Indonesia', color: '#0052b3' },
 ];
 
 export default function Home() {
@@ -35,148 +77,146 @@ export default function Home() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
-      {/* ── HERO ── */}
-      <section aria-label="Hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', background: 'var(--color-bg-dark)' }}>
-        {/* Hero background image — wheat fields at golden hour */}
+      {/* ── HERO ─────────────────────────────────────────────────── */}
+      <section aria-label="Hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', background: '#0a0a0a' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=80&auto=format&fit=crop"
-          alt="Golden wheat fields representing premium Indian agricultural exports"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', opacity: 1 }}
+          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=85&auto=format&fit=crop"
+          alt="Golden wheat fields — premium Indian agricultural exports"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', opacity: 0.45 }}
           loading="eager"
         />
-        {/* Dark gradient overlay — keeps text readable */}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(150deg, rgba(13,13,26,0.52) 0%, rgba(19,19,42,0.44) 45%, rgba(26,26,53,0.38) 80%, rgba(34,34,63,0.34) 100%)' }} />
-        <div className="bg-texture" style={{ position: 'absolute', inset: 0 }} />
-        <div style={{ position: 'absolute', top: '-100px', right: '-60px', width: '520px', height: '520px', background: 'radial-gradient(circle, rgba(0, 115, 230,0.15) 0%, transparent 65%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-80px', left: '-60px', width: '420px', height: '420px', background: 'radial-gradient(circle, rgba(102, 178, 245,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        {/* Left-heavy gradient so text on left is readable, right is more image */}
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(105deg, rgba(5,5,5,0.92) 0%, rgba(5,5,5,0.80) 40%, rgba(5,5,5,0.45) 70%, rgba(5,5,5,0.2) 100%)' }} />
+        {/* Blue glow top-right */}
+        <div style={{ position: 'absolute', top: '-80px', right: '-80px', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(0,115,230,0.18) 0%, transparent 65%)', pointerEvents: 'none' }} />
 
-        <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '140px 2rem 80px', width: '100%' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 400px', gap: '80px', alignItems: 'center' }} className="hero-grid">
+        <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '130px 2rem 100px', width: '100%' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: '64px', alignItems: 'center' }} className="hero-grid">
 
+            {/* LEFT — text */}
             <div>
               <AnimatedSection>
-                <div className="badge-dark" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '28px' }}>
-                  <span style={{ width: '6px', height: '6px', background: 'var(--color-primary-soft)', borderRadius: '50%', display: 'inline-block' }} />
-                  Gujarat-Based Merchant Export House · Est. 2026
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(0,115,230,0.15)', border: '1px solid rgba(0,115,230,0.35)', borderRadius: '999px', padding: '5px 16px 5px 10px', marginBottom: '32px' }}>
+                  <span style={{ width: '6px', height: '6px', background: '#3395f0', borderRadius: '50%', flexShrink: 0 }} />
+                  <span style={{ color: '#3395f0', fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' }}>Gujarat-Based Merchant Export House · Est. 2026</span>
                 </div>
               </AnimatedSection>
 
-              <AnimatedSection delay={100}>
-                <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 900, color: 'var(--color-bg-white)', lineHeight: 1.1, fontFamily: 'Poppins, sans-serif', marginBottom: '10px' }}>
+              <AnimatedSection delay={80}>
+                <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 900, color: '#ffffff', lineHeight: 1.08, fontFamily: 'Poppins, sans-serif', margin: '0 0 6px' }}>
                   Structured Sourcing.
                 </h1>
-                <h1 className="text-gradient-em" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 900, lineHeight: 1.1, fontFamily: 'Poppins, sans-serif', marginBottom: '10px' }}>
+                <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 900, lineHeight: 1.08, fontFamily: 'Poppins, sans-serif', margin: '0 0 6px', background: 'linear-gradient(90deg, #3395f0, #0073e6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                   Verified Quality.
                 </h1>
-                <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 900, color: 'rgba(255,255,255,0.4)', lineHeight: 1.1, fontFamily: 'Poppins, sans-serif', marginBottom: '32px' }}>
+                <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 900, color: 'rgba(255,255,255,0.28)', lineHeight: 1.08, fontFamily: 'Poppins, sans-serif', margin: '0 0 32px' }}>
                   Disciplined Delivery.
                 </h1>
               </AnimatedSection>
 
-              <AnimatedSection delay={200}>
-                <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: '17px', maxWidth: '540px', lineHeight: 1.9, marginBottom: '40px' }}>
-                  Premium Indian agricultural exports — rice, spices, pulses, and fresh produce — with verified quality and structured global delivery to GCC, Africa, and Southeast Asia.
+              <AnimatedSection delay={160}>
+                <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: 1.85, marginBottom: '40px', maxWidth: '520px' }}>
+                  Premium Indian agricultural exports — rice, spices, pulses, and fresh produce — with structured global delivery to GCC, Africa, and Southeast Asia.
                 </p>
               </AnimatedSection>
 
-              <AnimatedSection delay={300}>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', marginBottom: '48px' }}>
-                  <Link href="/contact" className="btn-primary" style={{ padding: '15px 36px', textDecoration: 'none', display: 'inline-block' }}>
+              <AnimatedSection delay={240}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '40px' }}>
+                  <Link href="/contact" className="btn-primary" style={{ padding: '15px 36px', textDecoration: 'none', display: 'inline-block', fontSize: '12px' }}>
                     Request Quotation
                   </Link>
-                  <Link href="/products" className="btn-outline-white" style={{ padding: '15px 36px', textDecoration: 'none', display: 'inline-block' }}>
+                  <Link href="/products" className="btn-outline-white" style={{ padding: '15px 36px', textDecoration: 'none', display: 'inline-block', fontSize: '12px' }}>
                     View Products
                   </Link>
                 </div>
               </AnimatedSection>
 
-              <AnimatedSection delay={400}>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+              <AnimatedSection delay={320}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '22px' }}>
                   {['APEDA Registered', 'FSSAI Compliant', 'Pre-Shipment Verified'].map(tag => (
                     <div key={tag} style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-                      <span style={{ color: 'var(--color-primary-soft)', fontSize: '13px' }}>✓</span>
-                      <span style={{ color: 'var(--color-bg-light)', fontSize: '12px' }}>{tag}</span>
+                      <span style={{ width: '16px', height: '16px', background: 'rgba(0,115,230,0.2)', border: '1px solid rgba(51,149,240,0.5)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '9px', color: '#3395f0' }}>✓</span>
+                      <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', fontWeight: 500 }}>{tag}</span>
                     </div>
                   ))}
                 </div>
               </AnimatedSection>
             </div>
 
-            {/* Stats block */}
+            {/* RIGHT — stats block */}
             <AnimatedSection delay={200}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                 {stats.map((s, i) => (
-                  <div key={s.label} className="card-dark-light" style={{ padding: '24px 16px', textAlign: 'center', borderTop: `2px solid ${i % 2 === 0 ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.18)'}` }}>
-                    <div style={{ fontSize: '2.1rem', fontWeight: 900, fontFamily: 'Poppins, sans-serif', lineHeight: 1, color: 'rgba(255,255,255,0.9)' }}>{s.value}</div>
-                    <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.13em', marginTop: '8px', fontWeight: 500 }}>{s.label}</div>
+                  <div key={s.label} style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(8px)', borderRadius: '10px', padding: '24px 16px', textAlign: 'center', borderTop: `2px solid ${i % 2 === 0 ? 'rgba(0,115,230,0.6)' : 'rgba(51,149,240,0.35)'}` }}>
+                    <div style={{ fontSize: '2rem', fontWeight: 900, fontFamily: 'Poppins, sans-serif', color: '#ffffff', lineHeight: 1 }}>{s.value}</div>
+                    <div style={{ color: 'rgba(255,255,255,0.42)', fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.14em', marginTop: '7px', fontWeight: 500 }}>{s.label}</div>
                   </div>
                 ))}
-                <div className="card-dark-light" style={{ gridColumn: 'span 2', padding: '20px', borderTop: '2px solid rgba(255,255,255,0.25)' }}>
-                  <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '10px' }}>Markets Served</div>
+                <div style={{ gridColumn: 'span 2', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(8px)', borderRadius: '10px', padding: '18px 20px', borderTop: '2px solid rgba(0,115,230,0.4)' }}>
+                  <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.32)', textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: '10px', fontWeight: 600 }}>Markets Served</div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                     {['GCC', 'Middle East', 'Africa', 'SE Asia', 'Europe'].map(m => (
-                      <span key={m} style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.20)', color: 'rgba(255,255,255,0.75)', fontSize: '11px', fontWeight: 600, padding: '4px 10px', borderRadius: '4px' }}>{m}</span>
+                      <span key={m} style={{ background: 'rgba(0,115,230,0.18)', border: '1px solid rgba(51,149,240,0.35)', color: '#66b2f5', fontSize: '11px', fontWeight: 600, padding: '4px 10px', borderRadius: '4px' }}>{m}</span>
                     ))}
                   </div>
                 </div>
               </div>
             </AnimatedSection>
-          </div>
-        </div>
 
-        <div style={{ position: 'absolute', bottom: '32px', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', opacity: 0.75 }}>
-          <span style={{ color: 'var(--color-bg-light)', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Scroll</span>
-          <div style={{ width: '1px', height: '28px', background: 'linear-gradient(to bottom, var(--color-bg-light), transparent)' }} />
+          </div>
         </div>
         <style>{`@media(max-width:900px){.hero-grid{grid-template-columns:1fr!important}}`}</style>
       </section>
 
-      {/* ── INFO STRIP ── */}
-      <div style={{ background: 'var(--color-border-card)', borderTop: '1px solid var(--color-border-section)', borderBottom: '1px solid var(--color-border-section)' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '13px 2rem', display: 'flex', justifyContent: 'center', gap: '32px', flexWrap: 'wrap' }}>
-          {['Rice · Spices · Pulses · Fresh Produce', 'Gujarat, India → Global Markets', 'APEDA Registered · FSSAI Compliant'].map(t => (
-            <span key={t} style={{ color: 'var(--color-text-heading-alt)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.05em' }}>{t}</span>
+      {/* ── BLUE STRIP ────────────────────────────────────────────── */}
+      <div style={{ background: 'linear-gradient(90deg, #0052b3, #0073e6, #3395f0, #0073e6, #0052b3)', padding: '11px 2rem' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', justifyContent: 'center', gap: '40px', flexWrap: 'wrap' }}>
+          {['Rice · Spices · Pulses · Fresh Produce', 'Gujarat, India → 20+ Global Markets', 'APEDA Registered · FSSAI Compliant'].map(t => (
+            <span key={t} style={{ color: 'rgba(255,255,255,0.9)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.04em' }}>{t}</span>
           ))}
         </div>
       </div>
 
-      {/* ── INTRO ── */}
-      <section style={{ padding: '96px 2rem', background: 'var(--color-bg-white)' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }} className="two-col">
+      {/* ── WHO WE ARE ────────────────────────────────────────────── */}
+      <section style={{ padding: '96px 2rem', background: '#ffffff' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '72px', alignItems: 'center' }} className="two-col">
           <AnimatedSection>
-            <span className="em-line" style={{ marginBottom: '20px', display: 'block' }} />
-            <p className="section-label" style={{ marginBottom: '14px' }}>Our Foundation</p>
-            <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 800, color: 'var(--color-text-heading-alt)', lineHeight: 1.2, fontFamily: 'Poppins, sans-serif', marginBottom: '28px' }}>
-              Built for Predictable, Reliable Global Trade
+            <div style={{ display: 'inline-block', width: '40px', height: '3px', background: 'linear-gradient(90deg,#0073e6,#3395f0)', borderRadius: '2px', marginBottom: '20px' }} />
+            <p style={{ color: '#0073e6', fontWeight: 700, fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.22em', marginBottom: '14px', fontFamily: 'Inter, sans-serif' }}>Who We Are</p>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 800, color: '#0a0a0a', lineHeight: 1.2, fontFamily: 'Poppins, sans-serif', marginBottom: '24px' }}>
+              Built for Predictable,<br />Reliable Global Trade
             </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', color: 'var(--color-text-paragraph)', fontSize: '15px', lineHeight: 1.9 }}>
-              <p>In international sourcing, inconsistency is the biggest risk. Approved samples often fail to match final shipments.</p>
-              <p>Maheshwari Global Exports was built to eliminate that gap — through disciplined <strong style={{ color: 'var(--color-text-heading-alt)' }}>supplier verification</strong>, structured pre-shipment checks, and execution-focused logistics management.</p>
-              <div className="callout-em">
-                <p style={{ color: 'var(--color-primary-dark)', fontWeight: 700, fontSize: '16px', margin: '0 0 4px', fontFamily: 'Poppins, sans-serif' }}>We do not trade opportunistically.</p>
-                <p style={{ color: 'var(--color-primary-mid)', fontWeight: 700, fontSize: '16px', margin: 0, fontFamily: 'Poppins, sans-serif' }}>We build repeatable supply systems.</p>
-              </div>
+            <p style={{ color: '#5a6272', fontSize: '15px', lineHeight: 1.9, marginBottom: '16px' }}>
+              In international sourcing, inconsistency is the biggest risk. Approved samples often fail to match final shipments.
+            </p>
+            <p style={{ color: '#5a6272', fontSize: '15px', lineHeight: 1.9, marginBottom: '24px' }}>
+              Maheshwari Global Exports was built to eliminate that gap — through disciplined <strong style={{ color: '#0a0a0a' }}>supplier verification</strong>, structured pre-shipment checks, and execution-focused logistics.
+            </p>
+            <div style={{ background: '#eff6ff', borderLeft: '4px solid #0073e6', padding: '16px 20px', borderRadius: '0 6px 6px 0', marginBottom: '32px' }}>
+              <p style={{ color: '#0052b3', fontWeight: 700, fontSize: '15px', margin: '0 0 4px', fontFamily: 'Poppins, sans-serif' }}>We do not trade opportunistically.</p>
+              <p style={{ color: '#0062cc', fontWeight: 600, fontSize: '14px', margin: 0 }}>We build repeatable supply systems.</p>
             </div>
-            <Link href="/about" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--color-primary)', fontWeight: 700, marginTop: '32px', textDecoration: 'none', fontSize: '14px', borderBottom: '2px solid var(--color-primary-light)', paddingBottom: '2px' }}>
-              Learn About Our Company &rarr;
+            <Link href="/about" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#0073e6', fontWeight: 700, textDecoration: 'none', fontSize: '13px', borderBottom: '2px solid #3395f0', paddingBottom: '2px' }}>
+              Learn About Our Company →
             </Link>
           </AnimatedSection>
 
           <AnimatedSection delay={150}>
             <div style={{ position: 'relative' }}>
-              <div style={{ aspectRatio: '4/3', background: 'var(--color-bg-light)', borderRadius: '10px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.06)', position: 'relative' }}>
+              <div style={{ borderRadius: '12px', overflow: 'hidden', aspectRatio: '4/3', position: 'relative' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80&auto=format&fit=crop" alt="Export operations and logistics in Rajkot Gujarat India" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', opacity: 0.7 }} loading="lazy" />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%)' }} />
-                <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px', background: 'rgba(255,255,255,0.95)', borderRadius: '6px', padding: '12px 16px', border: '1px solid rgba(0, 115, 230,0.35)' }}>
-                  <div style={{ color: 'var(--color-primary)', fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '4px' }}>Established 2026</div>
-                  <div style={{ color: 'var(--color-text-heading)', fontWeight: 700, fontFamily: 'Poppins, sans-serif', fontSize: '14px' }}>Rajkot, Gujarat — India&apos;s Export Belt</div>
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80&auto=format&fit=crop" alt="Export operations and logistics in Rajkot Gujarat India" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%)' }} />
+                <div style={{ position: 'absolute', bottom: '20px', left: '20px', right: '20px', background: 'rgba(255,255,255,0.97)', borderRadius: '8px', padding: '14px 18px', boxShadow: '0 4px 20px rgba(0,0,0,0.15)' }}>
+                  <div style={{ color: '#0073e6', fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '4px' }}>Base of Operations</div>
+                  <div style={{ color: '#0a0a0a', fontWeight: 700, fontFamily: 'Poppins, sans-serif', fontSize: '14px' }}>Rajkot, Gujarat — India&apos;s Export Belt</div>
                 </div>
               </div>
-              <div style={{ position: 'absolute', top: '-18px', right: '-18px', background: 'linear-gradient(135deg, var(--color-primary), var(--color-primary-light))', padding: '16px 20px', borderRadius: '8px', boxShadow: '0 8px 24px rgba(0, 115, 230,0.45)' }}>
-                <div style={{ fontSize: '24px', fontWeight: 900, fontFamily: 'Poppins, sans-serif', color: '#fff' }}>100%</div>
-                <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.8)', textTransform: 'uppercase', letterSpacing: '0.1em', marginTop: '3px', fontWeight: 700 }}>Quality Verified</div>
+              {/* Floating badge */}
+              <div style={{ position: 'absolute', top: '-16px', right: '-16px', background: 'linear-gradient(135deg,#0073e6,#3395f0)', padding: '18px 22px', borderRadius: '10px', boxShadow: '0 8px 28px rgba(0,115,230,0.45)', textAlign: 'center' }}>
+                <div style={{ fontSize: '26px', fontWeight: 900, fontFamily: 'Poppins, sans-serif', color: '#fff', lineHeight: 1 }}>100%</div>
+                <div style={{ fontSize: '9px', color: 'rgba(255,255,255,0.85)', textTransform: 'uppercase', letterSpacing: '0.12em', marginTop: '4px', fontWeight: 700 }}>Quality<br/>Verified</div>
               </div>
             </div>
           </AnimatedSection>
@@ -184,88 +224,170 @@ export default function Home() {
         <style>{`@media(max-width:900px){.two-col{grid-template-columns:1fr!important;gap:48px!important}}`}</style>
       </section>
 
-      {/* ── FEATURES ── */}
-      <section style={{ padding: '80px 2rem', background: 'var(--color-bg-feature)', borderTop: '1px solid var(--color-border-section)' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '22px' }} className="three-col">
-          {features.map((f, i) => (
-            <AnimatedSection key={f.title} delay={i * 100}>
-              <div className="card-em-accent" style={{ padding: '28px' }}>
-                <div style={{ width: '48px', height: '48px', background: 'var(--color-bg-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '7px', marginBottom: '16px', fontSize: '20px' }}>{f.icon}</div>
-                <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: 'var(--color-text-heading-alt)', fontSize: '15px', marginBottom: '8px', marginTop: 0 }}>{f.title}</h3>
-                <p style={{ color: 'var(--color-text-muted)', fontSize: '13px', lineHeight: 1.8, margin: 0 }}>{f.desc}</p>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
-        <style>{`@media(max-width:768px){.three-col{grid-template-columns:1fr!important}}`}</style>
-      </section>
-
-      {/* ── PRODUCTS ── */}
-      <section style={{ padding: '96px 2rem', background: 'var(--color-bg-white)' }}>
+      {/* ── PRODUCTS ──────────────────────────────────────────────── */}
+      <section style={{ padding: '88px 2rem', background: '#f4f5f7' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <AnimatedSection>
-            <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-              <span className="em-line" style={{ margin: '0 auto 16px', display: 'block' }} />
-              <p className="section-label" style={{ marginBottom: '12px' }}>What We Export</p>
-              <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 800, color: 'var(--color-text-heading-alt)', fontFamily: 'Poppins, sans-serif', marginBottom: '12px' }}>
-                Premium Indian Agricultural Products
-              </h2>
-              <p style={{ color: 'var(--color-text-muted)', maxWidth: '500px', margin: '0 auto', lineHeight: 1.8 }}>
-                Every product sourced, verified, and shipped with disciplined quality control from Gujarat, India.
-              </p>
+            <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', marginBottom: '48px' }}>
+              <div>
+                <div style={{ display: 'inline-block', width: '40px', height: '3px', background: 'linear-gradient(90deg,#0073e6,#3395f0)', borderRadius: '2px', marginBottom: '16px' }} />
+                <p style={{ color: '#0073e6', fontWeight: 700, fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.22em', marginBottom: '10px', fontFamily: 'Inter, sans-serif' }}>What We Export</p>
+                <h2 style={{ fontSize: 'clamp(1.7rem, 2.8vw, 2.4rem)', fontWeight: 800, color: '#0a0a0a', fontFamily: 'Poppins, sans-serif', margin: 0 }}>
+                  Premium Indian Agricultural Products
+                </h2>
+              </div>
+              <Link href="/products" style={{ color: '#0073e6', fontWeight: 700, fontSize: '13px', textDecoration: 'none', borderBottom: '2px solid #3395f0', paddingBottom: '2px', whiteSpace: 'nowrap' }}>
+                Full Portfolio →
+              </Link>
             </div>
           </AnimatedSection>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '18px' }} className="four-col">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '20px' }} className="four-col">
             {products.map((p, i) => (
               <AnimatedSection key={p.name} delay={i * 80}>
-                <Link href={p.path} style={{ textDecoration: 'none', display: 'block' }}>
-                  <div className="card hover-card" style={{ padding: '28px 20px', textAlign: 'center', cursor: 'pointer' }}>
-                    <div style={{ fontSize: '40px', marginBottom: '14px' }}>{p.icon}</div>
-                    <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: 'var(--color-text-heading-alt)', fontSize: '15px', marginBottom: '6px', marginTop: 0 }}>{p.name}</h3>
-                    <p style={{ color: 'var(--color-text-subtle)', fontSize: '12px', margin: '0 0 14px' }}>{p.desc}</p>
-                    <span style={{ fontSize: '11px', color: 'var(--color-primary)', fontWeight: 700, letterSpacing: '0.05em' }}>VIEW DETAILS →</span>
+                <Link href="/products" style={{ textDecoration: 'none', display: 'block' }}>
+                  <div style={{ background: '#ffffff', border: '1px solid #e8eaed', borderRadius: '10px', overflow: 'hidden', cursor: 'pointer', transition: 'all 0.25s ease', position: 'relative' }} className="product-card">
+                    {/* Product image */}
+                    <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden' }}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={p.img.src} alt={p.imgAlt} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }} loading="lazy" className="product-card-img" />
+                      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 55%)' }} />
+                      <div style={{ position: 'absolute', top: '12px', right: '12px', background: 'rgba(255,255,255,0.95)', color: '#0073e6', fontSize: '9px', fontWeight: 700, padding: '3px 9px', borderRadius: '999px', letterSpacing: '0.06em', textTransform: 'uppercase', boxShadow: '0 2px 8px rgba(0,0,0,0.12)' }}>{p.tag}</div>
+                    </div>
+                    {/* Card text */}
+                    <div style={{ padding: '18px 20px 20px' }}>
+                      <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0a0a0a', fontSize: '15px', marginBottom: '4px', marginTop: 0 }}>{p.name}</h3>
+                      <p style={{ color: '#9ca3af', fontSize: '12px', margin: '0 0 14px', lineHeight: 1.5 }}>{p.desc}</p>
+                      <span style={{ fontSize: '11px', color: '#0073e6', fontWeight: 700, letterSpacing: '0.06em', borderBottom: '1px solid #bfdbfe', paddingBottom: '1px' }}>VIEW DETAILS →</span>
+                    </div>
                   </div>
                 </Link>
               </AnimatedSection>
             ))}
           </div>
-          <div style={{ textAlign: 'center', marginTop: '36px' }}>
-            <Link href="/products" className="btn-outline-em" style={{ padding: '13px 30px', textDecoration: 'none', display: 'inline-block' }}>
-              View Full Product Portfolio
-            </Link>
-          </div>
         </div>
-        <style>{`@media(max-width:900px){.four-col{grid-template-columns:repeat(2,1fr)!important}}@media(max-width:480px){.four-col{grid-template-columns:1fr!important}}`}</style>
+        <style>{`
+          .product-card:hover { box-shadow: 0 12px 40px rgba(0,115,230,0.12); transform: translateY(-4px); border-color: #0073e6 !important; }
+          .product-card:hover .product-card-img { transform: scale(1.05); }
+          @media(max-width:900px){.four-col{grid-template-columns:repeat(2,1fr)!important}}
+          @media(max-width:480px){.four-col{grid-template-columns:1fr!important}}
+        `}</style>
       </section>
 
-      {/* ── CTA ── */}
-      <section style={{ padding: '88px 2rem', position: 'relative', overflow: 'hidden', background: 'var(--color-bg-dark)' }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1400&q=70&auto=format&fit=crop" alt="Wheat fields at golden hour representing Indian agricultural exports" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 60%', opacity: 0.75 }} loading="lazy" />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(150deg,rgba(10,10,10,0.55) 0%,rgba(0,0,0,0.48) 100%)' }} />
-        <div className="bg-texture" style={{ position: 'absolute', inset: 0 }} />
-        <div style={{ position: 'absolute', top: '-80px', right: '-60px', width: '400px', height: '400px', background: 'radial-gradient(circle,rgba(0, 115, 230,0.15) 0%,transparent 65%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'relative', zIndex: 10, maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
+      {/* ── WHY CHOOSE US ─────────────────────────────────────────── */}
+      <section style={{ padding: '88px 2rem', background: '#ffffff' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <AnimatedSection>
-            <span className="em-line" style={{ margin: '0 auto 20px', display: 'block' }} />
-            <p className="section-label-dark" style={{ marginBottom: '16px' }}>Start Sourcing</p>
-            <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 800, color: '#fff', fontFamily: 'Poppins, sans-serif', marginBottom: '18px', lineHeight: 1.3 }}>
-              Ready to Source Premium Indian Agricultural Products?
+            <div style={{ textAlign: 'center', marginBottom: '56px' }}>
+              <div style={{ display: 'inline-block', width: '40px', height: '3px', background: 'linear-gradient(90deg,#0073e6,#3395f0)', borderRadius: '2px', marginBottom: '16px' }} />
+              <p style={{ color: '#0073e6', fontWeight: 700, fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.22em', marginBottom: '12px', fontFamily: 'Inter, sans-serif' }}>Why Buyers Choose Us</p>
+              <h2 style={{ fontSize: 'clamp(1.7rem, 2.8vw, 2.4rem)', fontWeight: 800, color: '#0a0a0a', fontFamily: 'Poppins, sans-serif', marginBottom: '12px' }}>
+                Operational Discipline at Every Step
+              </h2>
+              <p style={{ color: '#6b7280', maxWidth: '480px', margin: '0 auto', lineHeight: 1.8, fontSize: '15px' }}>
+                Every decision we make is built around one goal — consistency you can rely on.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '20px' }} className="three-col">
+            {whyUs.map((w, i) => (
+              <AnimatedSection key={w.title} delay={i * 70}>
+                <div style={{ background: '#ffffff', border: '1px solid #e8eaed', borderRadius: '10px', padding: '28px', borderTop: '3px solid #0073e6', boxShadow: '0 1px 4px rgba(0,0,0,0.05)', transition: 'all 0.25s ease' }} className="hover-card">
+                  <div style={{ width: '44px', height: '44px', background: '#eff6ff', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '8px', marginBottom: '16px', fontSize: '20px' }}>{w.icon}</div>
+                  <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0a0a0a', fontSize: '15px', marginBottom: '8px', marginTop: 0 }}>{w.title}</h3>
+                  <p style={{ color: '#6b7280', fontSize: '13px', lineHeight: 1.8, margin: 0 }}>{w.desc}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          <AnimatedSection delay={200}>
+            <div style={{ textAlign: 'center', marginTop: '40px' }}>
+              <Link href="/why-choose-us" className="btn-outline-em" style={{ padding: '13px 32px', textDecoration: 'none', display: 'inline-block' }}>
+                See Full Comparison
+              </Link>
+            </div>
+          </AnimatedSection>
+        </div>
+        <style>{`@media(max-width:768px){.three-col{grid-template-columns:1fr!important}}`}</style>
+      </section>
+
+      {/* ── MARKETS ───────────────────────────────────────────────── */}
+      <section style={{ padding: '88px 2rem', background: '#f4f5f7' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '72px', alignItems: 'center' }} className="two-col-b">
+          <AnimatedSection>
+            <div style={{ display: 'inline-block', width: '40px', height: '3px', background: 'linear-gradient(90deg,#0073e6,#3395f0)', borderRadius: '2px', marginBottom: '20px' }} />
+            <p style={{ color: '#0073e6', fontWeight: 700, fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.22em', marginBottom: '14px', fontFamily: 'Inter, sans-serif' }}>Markets We Serve</p>
+            <h2 style={{ fontSize: 'clamp(1.7rem, 2.8vw, 2.4rem)', fontWeight: 800, color: '#0a0a0a', fontFamily: 'Poppins, sans-serif', marginBottom: '20px' }}>
+              Exporting to 20+<br />Countries Worldwide
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '16px', marginBottom: '36px', lineHeight: 1.8 }}>
+            <p style={{ color: '#5a6272', fontSize: '15px', lineHeight: 1.85, marginBottom: '32px' }}>
+              From Gujarat&apos;s farms to dinner tables across four continents — structured, reliable, and fully documented.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
+              {markets.map((m) => (
+                <div key={m.region} style={{ background: '#ffffff', border: '1px solid #e8eaed', borderRadius: '8px', padding: '14px 18px', display: 'flex', alignItems: 'center', gap: '16px' }}>
+                  <div style={{ width: '36px', height: '36px', background: '#eff6ff', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <span style={{ color: m.color, fontWeight: 800, fontSize: '11px', fontFamily: 'Poppins' }}>{m.region.slice(0, 2)}</span>
+                  </div>
+                  <div>
+                    <div style={{ color: '#0a0a0a', fontWeight: 700, fontSize: '13px', fontFamily: 'Poppins, sans-serif', marginBottom: '2px' }}>{m.region}</div>
+                    <div style={{ color: '#9ca3af', fontSize: '11px' }}>{m.countries}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <Link href="/markets" className="btn-primary" style={{ padding: '13px 28px', textDecoration: 'none', display: 'inline-block' }}>
+              View All Markets
+            </Link>
+          </AnimatedSection>
+
+          <AnimatedSection delay={150}>
+            <div style={{ borderRadius: '12px', overflow: 'hidden', position: 'relative' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=900&q=80&auto=format&fit=crop"
+                alt="Global trade routes map representing worldwide export markets"
+                style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block' }}
+                loading="lazy"
+              />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%)' }} />
+              <div style={{ position: 'absolute', bottom: '20px', left: '20px', right: '20px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                {['GCC', 'Middle East', 'Africa', 'SE Asia', 'Europe'].map(m => (
+                  <span key={m} style={{ background: 'rgba(0,115,230,0.85)', color: '#ffffff', fontSize: '11px', fontWeight: 700, padding: '5px 12px', borderRadius: '4px', backdropFilter: 'blur(4px)' }}>{m}</span>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+        <style>{`@media(max-width:900px){.two-col-b{grid-template-columns:1fr!important;gap:48px!important}}`}</style>
+      </section>
+
+      {/* ── CTA ───────────────────────────────────────────────────── */}
+      <section style={{ position: 'relative', overflow: 'hidden', background: '#0a0a0a' }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1400&q=70&auto=format&fit=crop" alt="" aria-hidden="true" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 60%', opacity: 0.35 }} loading="lazy" />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg,rgba(0,82,179,0.6) 0%,rgba(5,5,5,0.85) 60%)' }} />
+        <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '88px 2rem', display: 'grid', gridTemplateColumns: '1fr auto', gap: '48px', alignItems: 'center' }} className="cta-grid">
+          <AnimatedSection>
+            <div style={{ display: 'inline-block', width: '40px', height: '3px', background: 'linear-gradient(90deg,#3395f0,rgba(255,255,255,0.4))', borderRadius: '2px', marginBottom: '18px' }} />
+            <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 3rem)', fontWeight: 800, color: '#ffffff', fontFamily: 'Poppins, sans-serif', marginBottom: '14px', lineHeight: 1.2 }}>
+              Ready to Source Premium<br />Indian Agricultural Products?
+            </h2>
+            <p style={{ color: 'rgba(255,255,255,0.62)', fontSize: '16px', lineHeight: 1.8, maxWidth: '540px' }}>
               Connect with Gujarat&apos;s reliable merchant export house for structured, quality-verified sourcing.
             </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', justifyContent: 'center' }}>
-              <Link href="/contact" className="btn-primary" style={{ padding: '15px 40px', textDecoration: 'none', display: 'inline-block' }}>
-                Request Quotation
-              </Link>
-              <Link href="/process" className="btn-outline-white" style={{ padding: '15px 40px', textDecoration: 'none', display: 'inline-block' }}>
+          </AnimatedSection>
+          <AnimatedSection delay={150}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'flex-end' }}>
+              <Link href="/process" className="btn-outline-white" style={{ padding: '14px 40px', textDecoration: 'none', display: 'inline-block', fontSize: '12px', whiteSpace: 'nowrap' }}>
                 Our Export Process
               </Link>
             </div>
           </AnimatedSection>
         </div>
+        <style>{`@media(max-width:768px){.cta-grid{grid-template-columns:1fr!important}.cta-grid>*:last-child{align-items:flex-start!important}}`}</style>
       </section>
     </>
   );

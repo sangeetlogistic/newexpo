@@ -1,6 +1,10 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import AnimatedSection from '@/components/AnimatedSection';
 import { buildMetadata, breadcrumbSchema, productSchema } from '@/lib/seo';
+import imgRice from '../../../public/assets/basmati-rice.jpg';
+import imgSpices from '../../../public/assets/spices.jpg';
+import imgPulses from '../../../public/assets/pulses.avif';
+import imgFruits from '../../../public/assets/fruits.avif';
 
 export const metadata = buildMetadata({
   title: 'Our Products | Rice Exporter India | Spice Exporter India | Pulses Exporter India',
@@ -11,28 +15,36 @@ export const metadata = buildMetadata({
 
 const categories = [
   {
-    icon: '🌾', title: 'Rice', seoTitle: 'Basmati & Non-Basmati Rice Exporter from India',
+    img: imgRice,
+    imgAlt: 'Premium long-grain basmati rice grains in a wooden bowl — rice exporter India',
+    title: 'Rice', seoTitle: 'Basmati & Non-Basmati Rice Exporter from India',
     subtitle: 'Basmati & Non-Basmati',
     description: 'Export-compliant packaging with precise moisture control and uniform grading. Premium long-grain basmati to everyday non-basmati varieties, sourced from verified farms.',
     variants: ['Premium Basmati (1121)', 'Traditional Basmati', 'Non-Basmati (Sona Masoori)', 'Parboiled Rice', 'IR64 Rice', 'Long Grain Rice'],
     certifications: ['APEDA Registered', 'FSSAI Compliant', 'Phytosanitary Certificate'],
   },
   {
-    icon: '🌶️', title: 'Indian Spices', seoTitle: 'Indian Spice Exporter — Turmeric, Cumin, Chili, Coriander',
+    img: imgSpices,
+    imgAlt: 'Colorful Indian spices red chili turmeric coriander star anise — spice exporter India',
+    title: 'Indian Spices', seoTitle: 'Indian Spice Exporter — Turmeric, Cumin, Chili, Coriander',
     subtitle: 'Turmeric, Cumin, Chili & More',
     description: 'Authentic Indian spices sourced directly from origin farms. Every batch tested for purity, moisture content, and essential oil percentage before export dispatch.',
     variants: ['Turmeric Powder', 'Cumin Seeds (Jeera)', 'Red Chili (Whole & Powder)', 'Coriander Seeds'],
     certifications: ['FSSAI Certified', 'Lab-Tested Purity', 'Export Grade Quality'],
   },
   {
-    icon: '🫘', title: 'Pulses & Lentils', seoTitle: 'Pulses & Lentils Exporter from India — Bulk Supplier',
+    img: imgPulses,
+    imgAlt: 'Raw brown lentils and pulses in bulk — pulses exporter India',
+    title: 'Pulses & Lentils', seoTitle: 'Pulses & Lentils Exporter from India — Bulk Supplier',
     subtitle: 'Cleaned, Graded & Packed',
     description: 'Professionally cleaned, graded, and packed as per buyer specifications. Available in bulk and retail-ready packaging for global food distributors.',
     variants: ['Yellow Lentils (Moong Dal)', 'Red Lentils (Masoor)', 'Toor Dal', 'Chana Dal', 'Chickpeas', 'Black-Eyed Peas'],
     certifications: ['Moisture Verified', 'Buyer-Spec Grading', 'Custom Packing Available'],
   },
   {
-    icon: '🥭', title: 'Fresh Fruits & Vegetables', seoTitle: 'Fresh Fruits & Vegetables Exporter India',
+    img: imgFruits,
+    imgAlt: 'Fresh Indian fruits and vegetables for export',
+    title: 'Fresh Fruits & Vegetables', seoTitle: 'Fresh Fruits & Vegetables Exporter India',
     subtitle: 'Verified Supply Chains',
     description: 'Export-ready fresh produce with verified cold-chain management and export-standard packaging. Seasonal sourcing from certified farms across Gujarat and Maharashtra.',
     variants: ['Alphonso Mango', 'Fresh Onion', 'Garlic', 'Fresh Ginger', 'Pomegranate'],
@@ -95,40 +107,48 @@ export default function Products() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             {categories.map((cat, i) => (
               <AnimatedSection key={cat.title} delay={i * 80}>
-                <article aria-label={cat.seoTitle} className="hover-card" style={{ background: 'var(--color-bg-dark)', borderRadius: '14px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.06)' }}>
-                  <div style={{ height: '3px', background: 'linear-gradient(90deg, rgba(255,255,255,0.2), rgba(255,255,255,0.03))' }} />
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', padding: '36px 36px 36px 32px', alignItems: 'start' }} className="two-col-product">
-                    <div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '16px' }}>
-                        <span style={{ fontSize: '40px' }}>{cat.icon}</span>
-                        <div>
-                          <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, color: '#fff', fontSize: '21px', margin: '0 0 6px' }}>{cat.title}</h3>
-                          <span style={{ display: 'inline-block', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.7)', fontSize: '10px', fontWeight: 700, padding: '3px 12px', borderRadius: '999px', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Export Ready</span>
-                        </div>
-                      </div>
-                      <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', lineHeight: 1.9, marginBottom: '18px' }}>{cat.description}</p>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
-                        {cat.variants.map(v => (
-                          <span key={v} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.6)', fontSize: '12px', fontWeight: 500, padding: '5px 12px', borderRadius: '4px' }}>{v}</span>
-                        ))}
+                <article aria-label={cat.seoTitle} style={{ background: '#ffffff', borderRadius: '12px', overflow: 'hidden', border: '1px solid #e8eaed', boxShadow: '0 2px 12px rgba(0,0,0,0.06)', transition: 'all 0.25s ease' }} className="hover-card">
+                  <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', alignItems: 'stretch' }} className="two-col-product">
+                    {/* Product image */}
+                    <div style={{ position: 'relative', overflow: 'hidden', minHeight: '220px' }}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={cat.img.src} alt={cat.imgAlt} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }} loading="lazy" className="cat-img" />
+                      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent 60%, rgba(255,255,255,0.15) 100%)' }} />
+                      <div style={{ position: 'absolute', bottom: '14px', left: '14px' }}>
+                        <span style={{ background: 'rgba(0,115,230,0.9)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '4px 12px', borderRadius: '999px', letterSpacing: '0.08em', textTransform: 'uppercase', backdropFilter: 'blur(4px)' }}>Export Ready</span>
                       </div>
                     </div>
 
-                    <div>
-                      <h4 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#fff', fontSize: '12px', marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.12em', marginTop: 0 }}>Standards &amp; Certifications</h4>
-                      {cat.certifications.map(cert => (
-                        <div key={cert} style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px', fontSize: '13px', color: 'rgba(255,255,255,0.55)' }}>
-                          <div style={{ width: '22px', height: '22px', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                            <span style={{ color: '#fff', fontSize: '10px', fontWeight: 700 }}>✓</span>
-                          </div>
-                          {cert}
+                    {/* Content */}
+                    <div style={{ padding: '28px 32px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '28px', alignItems: 'start' }} className="two-col-inner">
+                      <div>
+                        <div style={{ borderTop: '3px solid #0073e6', width: '32px', marginBottom: '16px' }} />
+                        <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, color: '#0a0a0a', fontSize: '20px', margin: '0 0 4px' }}>{cat.title}</h3>
+                        <p style={{ color: '#0073e6', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', margin: '0 0 14px' }}>{cat.subtitle}</p>
+                        <p style={{ color: '#5a6272', fontSize: '14px', lineHeight: 1.85, marginBottom: '18px' }}>{cat.description}</p>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                          {cat.variants.map(v => (
+                            <span key={v} style={{ background: '#f4f5f7', border: '1px solid #e8eaed', color: '#374151', fontSize: '11px', fontWeight: 500, padding: '4px 10px', borderRadius: '4px' }}>{v}</span>
+                          ))}
                         </div>
-                      ))}
-                      <div style={{ marginTop: '22px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '8px', padding: '16px' }}>
-                        <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '12px', margin: '0 0 10px' }}>Interested in this product?</p>
-                        <Link href="/contact" style={{ display: 'block', textAlign: 'center', padding: '10px', fontSize: '11px', textDecoration: 'none', background: '#fff', color: 'var(--color-bg-dark)', fontWeight: 700, borderRadius: '6px', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                          Request Quotation
-                        </Link>
+                      </div>
+
+                      <div>
+                        <h4 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0a0a0a', fontSize: '12px', marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.12em', marginTop: 0 }}>Standards &amp; Certifications</h4>
+                        {cat.certifications.map(cert => (
+                          <div key={cert} style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px', fontSize: '13px', color: '#5a6272' }}>
+                            <div style={{ width: '20px', height: '20px', background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                              <span style={{ color: '#0073e6', fontSize: '10px', fontWeight: 700 }}>✓</span>
+                            </div>
+                            {cert}
+                          </div>
+                        ))}
+                        <div style={{ marginTop: '20px', background: '#f4f5f7', border: '1px solid #e8eaed', borderRadius: '8px', padding: '14px 16px' }}>
+                          <p style={{ color: '#9ca3af', fontSize: '12px', margin: '0 0 10px' }}>Interested in this product?</p>
+                          <Link href="/contact" style={{ display: 'block', textAlign: 'center', padding: '10px', fontSize: '11px', textDecoration: 'none', background: 'linear-gradient(135deg,#0073e6,#3395f0)', color: '#fff', fontWeight: 700, borderRadius: '6px', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                            Request Quotation
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -137,7 +157,11 @@ export default function Products() {
             ))}
           </div>
         </div>
-        <style>{`@media(max-width:768px){.two-col-product{grid-template-columns:1fr!important}}`}</style>
+        <style>{`
+          .cat-img { transition: transform 0.4s ease; }
+          .hover-card:hover .cat-img { transform: scale(1.04); }
+          @media(max-width:860px){.two-col-product{grid-template-columns:1fr!important}.two-col-inner{grid-template-columns:1fr!important}}
+        `}</style>
       </section>
 
       {/* ── PRIVATE LABEL ── */}
