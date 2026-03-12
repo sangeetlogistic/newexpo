@@ -1,4 +1,4 @@
-﻿import AnimatedSection from '@/components/AnimatedSection';
+import AnimatedSection from '@/components/AnimatedSection';
 import { buildMetadata, breadcrumbSchema } from '@/lib/seo';
 import ContactClient from './ContactClient';
 
@@ -15,27 +15,43 @@ export default function Contact() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
-      {/* PAGE HEADER */}
-      <section style={{ paddingTop: '160px', paddingBottom: '96px', position: 'relative', overflow: 'hidden', background: 'var(--color-bg-light)' }}>
+      {/* PAGE HEADER — Dark cinematic (matching why-choose-us & other pages) */}
+      <section style={{ paddingTop: '160px', paddingBottom: '110px', position: 'relative', overflow: 'hidden', background: '#0a0a0a' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=75&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80&auto=format&fit=crop"
           alt="Modern office representing Maheshwari Global Exports contact and enquiry center in Rajkot Gujarat"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', opacity: 0.75 }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', opacity: 1 }}
           loading="eager"
         />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(150deg, rgba(250,250,250,0.55) 0%, rgba(244,245,247,0.50) 60%, rgba(238,240,243,0.45) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(100deg, rgba(10,10,10,0.92) 40%, rgba(10,10,10,0.45) 100%)' }} />
         <div className="bg-texture" style={{ position: 'absolute', inset: 0 }} />
+
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
           <AnimatedSection>
-            <span className="em-line" style={{ marginBottom: '20px', display: 'block' }} />
-            <p className="section-label" style={{ color: 'var(--color-primary)', marginBottom: '14px' }}>Get In Touch</p>
-            <h1 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 900, color: 'var(--color-text-heading)', fontFamily: 'Poppins, sans-serif', marginBottom: '20px', maxWidth: '700px' }}>
-              Contact Maheshwari Global Exports — Request an Export Quotation
+            {/* Breadcrumb pill — matching why-choose-us */}
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(0,115,230,0.18)', border: '1px solid rgba(0,115,230,0.35)', borderRadius: '999px', padding: '6px 16px', marginBottom: '28px' }}>
+              <span style={{ width: '6px', height: '6px', background: '#0073e6', borderRadius: '50%', display: 'inline-block' }} />
+              <span style={{ color: '#3395f0', fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Get In Touch</span>
+            </div>
+
+            <h1 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 900, color: '#fff', fontFamily: 'Poppins, sans-serif', marginBottom: '20px', maxWidth: '720px', lineHeight: 1.1 }}>
+              Contact Maheshwari<br />
+              <span style={{ background: 'linear-gradient(90deg, #0073e6, #3395f0)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Global Exports</span>
             </h1>
-            <p style={{ color: 'var(--color-text-secondary)', fontSize: '18px', maxWidth: '580px', lineHeight: 1.8 }}>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '17px', maxWidth: '520px', lineHeight: 1.9, marginBottom: '44px' }}>
               Ready to source premium Indian agricultural products? Tell us what you need and we&apos;ll respond with a structured proposal within 24 hours.
             </p>
+
+            {/* Quick stats — matching why-choose-us style */}
+            <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
+              {[{ value: '24h', label: 'Response Time' }, { value: '20+', label: 'Markets Served' }, { value: '50+', label: 'Product Variants' }, { value: '100%', label: 'Quality Assured' }].map(s => (
+                <div key={s.label} style={{ borderLeft: '2px solid #0073e6', paddingLeft: '16px' }}>
+                  <div style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, color: '#fff', fontSize: '22px', lineHeight: 1 }}>{s.value}</div>
+                  <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: '11px', marginTop: '4px', letterSpacing: '0.06em' }}>{s.label}</div>
+                </div>
+              ))}
+            </div>
           </AnimatedSection>
         </div>
       </section>

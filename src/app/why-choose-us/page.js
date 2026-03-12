@@ -55,12 +55,12 @@ const features = [
 ];
 
 const comparisonRows = [
-  ['Supplier Verification',     '✅ Structured assessment',      '❌ Often skipped or informal'],
-  ['Sample-to-Shipment Match',  '✅ Non-negotiable standard',    '⚠️ Not systematically tracked'],
-  ['Export Documentation',      '✅ Error-free, complete',       '⚠️ Variable quality'],
-  ['Compliance Management',     '✅ Destination-specific',       '❌ Basic or absent'],
-  ['Trade Relationship',        '✅ Long-term focus',            '❌ Transaction-only'],
-  ['Communication',             '✅ Structured & proactive',     '⚠️ Reactive only'],
+  ['Supplier Verification', '✅ Structured assessment', '❌ Often skipped or informal'],
+  ['Sample-to-Shipment Match', '✅ Non-negotiable standard', '⚠️ Not systematically tracked'],
+  ['Export Documentation', '✅ Error-free, complete', '⚠️ Variable quality'],
+  ['Compliance Management', '✅ Destination-specific', '❌ Basic or absent'],
+  ['Trade Relationship', '✅ Long-term focus', '❌ Transaction-only'],
+  ['Communication', '✅ Structured & proactive', '⚠️ Reactive only'],
 ];
 
 const stats = [
@@ -82,7 +82,7 @@ export default function WhyChooseUs() {
         <img
           src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=80&auto=format&fit=crop"
           alt="Business handshake representing trusted global export partnership"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', opacity: 0.35 }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', opacity: 1 }}
           loading="eager"
         />
         {/* Left-heavy gradient so text stays readable */}
