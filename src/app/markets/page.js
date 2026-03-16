@@ -96,7 +96,6 @@ export default function Markets() {
                   {/* Blue gradient top accent */}
                   <div style={{ height: '3px', background: 'linear-gradient(90deg, #0073e6, #3395f0)' }} />
                   {/* Number watermark */}
-                  <div style={{ position: 'absolute', top: '18px', right: '22px', fontFamily: 'Poppins, sans-serif', fontWeight: 900, fontSize: '52px', color: '#f0f4ff', lineHeight: 1, userSelect: 'none' }}>{r.number}</div>
                   <div style={{ padding: '28px 28px 24px' }}>
                     <div className="region-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
