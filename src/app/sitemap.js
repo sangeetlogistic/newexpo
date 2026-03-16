@@ -9,7 +9,6 @@ export default function sitemap() {
     { url: '/process', priority: 0.8, changeFrequency: 'monthly' },
     { url: '/markets', priority: 0.8, changeFrequency: 'monthly' },
     { url: '/why-choose-us', priority: 0.7, changeFrequency: 'monthly' },
-    { url: '/leadership', priority: 0.6, changeFrequency: 'monthly' },
     { url: '/contact', priority: 0.9, changeFrequency: 'monthly' },
   ];
 

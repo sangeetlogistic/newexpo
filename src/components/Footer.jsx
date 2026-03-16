@@ -3,7 +3,6 @@ import Link from 'next/link';
 const cols = {
   company: [
     { name: 'About Us', path: '/about' },
-    { name: 'Leadership', path: '/leadership' },
     { name: 'Our Process', path: '/process' },
     { name: 'Why Choose Us', path: '/why-choose-us' },
   ],
@@ -26,14 +25,8 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', marginBottom: '20px' }}>
-              <div style={{ width: '40px', height: '40px', background: 'linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '6px', flexShrink: 0 }}>
-                <span style={{ color: '#fff', fontWeight: 900, fontSize: '18px', fontFamily: 'Poppins, sans-serif' }}>M</span>
-              </div>
-              <div>
-                <div style={{ color: 'var(--color-bg-white)', fontWeight: 700, fontSize: '15px', fontFamily: 'Poppins, sans-serif' }}>Maheshwari</div>
-                <div style={{ color: 'var(--color-primary-light)', fontSize: '9px', letterSpacing: '0.25em', textTransform: 'uppercase', fontWeight: 600 }}>Global Exports</div>
-              </div>
+            <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', marginBottom: '20px' }}>
+              <img src="/assets/expo-white.png" alt="Maheshwari Global Exports Logo" style={{ height: '50px', width: 'auto' }} />
             </Link>
             <p style={{ fontSize: '13px', lineHeight: 1.9, color: 'var(--color-primary-light)', fontStyle: 'italic', fontFamily: 'Poppins, sans-serif', marginBottom: '14px' }}>
               &ldquo;Delivering Quality. Building Global Trust.&rdquo;

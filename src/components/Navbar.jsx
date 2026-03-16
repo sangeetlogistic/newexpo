@@ -11,7 +11,6 @@ const navLinks = [
   { name: 'Our Process', path: '/process' },
   { name: 'Markets', path: '/markets' },
   { name: 'Why Choose Us', path: '/why-choose-us' },
-  { name: 'Leadership', path: '/leadership' },
   { name: 'Contact', path: '/contact' },
 ];
 
@@ -50,24 +49,16 @@ export default function Navbar() {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '68px' }}>
 
           {/* Logo */}
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }} aria-label="Maheshwari Global Exports Home">
-            <div style={{
-              width: '38px', height: '38px',
-              background: 'linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              borderRadius: '6px', flexShrink: 0,
-              boxShadow: '0 4px 12px rgba(0,115,230,0.3)',
-            }}>
-              <span style={{ color: 'var(--color-bg-white)', fontWeight: 900, fontSize: '17px', fontFamily: 'Poppins, sans-serif' }}>M</span>
-            </div>
-            <div>
-              <div style={{ color: solidNav ? 'var(--color-text-heading)' : 'var(--color-bg-white)', fontWeight: 700, fontSize: '15px', fontFamily: 'Poppins, sans-serif', lineHeight: 1.2, transition: 'color 0.3s' }}>
-                Maheshwari
-              </div>
-              <div style={{ color: 'var(--color-primary)', fontSize: '9px', letterSpacing: '0.25em', textTransform: 'uppercase', fontWeight: 600 }}>
-                Global Exports
-              </div>
-            </div>
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} aria-label="Maheshwari Global Exports Home">
+            <img
+              src={solidNav ? "/assets/expo.png" : "/assets/expo-white.png"}
+              alt="Maheshwari Global Exports Logo"
+              style={{
+                height: '45px',
+                width: 'auto',
+                transition: 'opacity 0.3s ease'
+              }}
+            />
           </Link>
 
           {/* Desktop nav */}

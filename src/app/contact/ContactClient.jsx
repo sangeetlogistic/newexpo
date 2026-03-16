@@ -95,7 +95,6 @@ export default function ContactClient() {
                     {[
                       { name: 'name', label: 'Full Name *', placeholder: 'Your name', type: 'text', required: true },
                       { name: 'email', label: 'Email Address *', placeholder: 'your@email.com', type: 'email', required: true },
-                      { name: 'company', label: 'Company Name *', placeholder: 'Your company', type: 'text', required: true },
                       { name: 'country', label: 'Country', placeholder: 'Your country', type: 'text', required: false },
                     ].map(field => (
                       <div key={field.name}>
@@ -110,22 +109,6 @@ export default function ContactClient() {
                       </div>
                     ))}
                   </div>
-
-                  <div>
-                    <label style={{ display: 'block', fontSize: '10px', fontWeight: 700, color: '#374151', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '7px' }}>Products of Interest</label>
-                    <select name="product" value={formData.product} onChange={handleChange} className="form-input" style={{ cursor: 'pointer' }}
-                      onFocus={e => { e.target.style.borderColor = '#0073e6'; e.target.style.boxShadow = '0 0 0 3px rgba(0,115,230,0.12)'; }}
-                      onBlur={e => { e.target.style.borderColor = '#d1d5db'; e.target.style.boxShadow = 'none'; }}>
-                      <option value="">Select a product category</option>
-                      <option>Rice (Basmati)</option>
-                      <option>Rice (Non-Basmati)</option>
-                      <option>Indian Spices</option>
-                      <option>Pulses &amp; Lentils</option>
-                      <option>Fresh Fruits &amp; Vegetables</option>
-                      <option>Multiple Products</option>
-                    </select>
-                  </div>
-
                   <div>
                     <label style={{ display: 'block', fontSize: '10px', fontWeight: 700, color: '#374151', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '7px' }}>Message *</label>
                     <textarea name="message" value={formData.message} onChange={handleChange} required rows={5}
@@ -155,22 +138,6 @@ export default function ContactClient() {
           @media(max-width:900px){.contact-grid{grid-template-columns:1fr!important}}
           @media(max-width:560px){.form-grid{grid-template-columns:1fr!important}}
         `}</style>
-      </section>
-
-      {/* MAP */}
-      <section style={{ padding: '0 2rem 80px', background: '#f4f5f7' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <AnimatedSection>
-            <div style={{ borderRadius: '14px', overflow: 'hidden', border: '1px solid #e8eaed', height: '360px', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}>
-              <iframe
-                title="Maheshwari Global Exports - Rajkot, Gujarat, India"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118445.33867827534!2d70.73229145!3d22.29264555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959b0a400c67be3%3A0x9b0da0acba37c1df!2sRajkot%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1709500000000!5m2!1sen!2sin"
-                style={{ width: '100%', height: '100%', border: 0 }}
-                allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </AnimatedSection>
-        </div>
       </section>
     </>
   );

@@ -39,12 +39,12 @@ export default function About() {
       <section style={{ paddingTop: '160px', paddingBottom: '120px', position: 'relative', overflow: 'hidden', background: 'var(--color-bg-dark)' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80&auto=format&fit=crop"
-          alt="Gujarat port and industrial infrastructure representing Maheshwari Global Exports base of operations"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 60%', opacity: 0.75 }}
+          src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?w=1600&q=80&auto=format&fit=crop"
+          alt="Container ship loading representing international trade and export logistics"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 60%', opacity: 0.6 }}
           loading="eager"
         />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg, rgba(10,10,10,0.7) 0%, rgba(19,19,42,0.55) 50%, rgba(10,10,10,0.65) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg, rgba(10,10,10,0.8) 0%, rgba(19,19,42,0.65) 50%, rgba(10,10,10,0.75) 100%)' }} />
         <div className="bg-texture" style={{ position: 'absolute', inset: 0 }} />
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
           <AnimatedSection>
@@ -100,7 +100,7 @@ export default function About() {
             <div style={{ position: 'relative' }}>
               <div style={{ aspectRatio: '4/5', borderRadius: '14px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=800&q=80&auto=format&fit=crop" alt="Indian agricultural fields" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} loading="lazy" />
+                <img src="/assets/WhatsApp%20Image%202026-03-14%20at%2012.13.36%20PM%20(1).jpeg" alt="Workers processing export-quality green bananas" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} loading="lazy" />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 40%)' }} />
                 <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px' }}>
                   <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '6px' }}>EST. 2026</div>
@@ -124,39 +124,66 @@ export default function About() {
         <style>{`@media(max-width:900px){.two-col{grid-template-columns:1fr!important;gap:48px!important}}`}</style>
       </section>
 
-      {/* ── JOURNEY / TIMELINE — light bg, white cards with blue accent ── */}
-      <section style={{ padding: '100px 2rem', background: '#f4f5f7', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'relative', zIndex: 10, maxWidth: '900px', margin: '0 auto' }}>
+      {/* ── FOUNDING TEAM ── */}
+      <section aria-labelledby="founders-heading" style={{ padding: '100px 2rem', background: '#f4f5f7' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <AnimatedSection>
-            <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '64px' }}>
               <div style={{ width: '36px', height: '3px', background: 'linear-gradient(90deg, #0073e6, #3395f0)', borderRadius: '2px', margin: '0 auto 16px' }} />
-              <p style={{ color: '#0073e6', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.22em', marginBottom: '12px' }}>Our Journey</p>
-              <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 800, color: '#0a0a0a', fontFamily: 'Poppins, sans-serif' }}>Building From the Ground Up</h2>
+              <p style={{ color: '#0073e6', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.18em', marginBottom: '12px' }}>The Leadership</p>
+              <h2 id="founders-heading" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 800, color: '#0a0a0a', fontFamily: 'Poppins, sans-serif', marginBottom: '12px' }}>Meet Our Founders</h2>
+              <p style={{ color: '#6b7280', maxWidth: '480px', margin: '0 auto', lineHeight: 1.8 }}>Two complementary skill sets driving structured export operations.</p>
             </div>
           </AnimatedSection>
-
-          {milestones.map((m, i) => (
-            <AnimatedSection key={m.title} delay={i * 100}>
-              <div style={{ display: 'flex', gap: '24px', position: 'relative' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0, width: '48px' }}>
-                  <div style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, #0073e6, #3395f0)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Poppins, sans-serif', fontWeight: 800, fontSize: '11px', color: '#fff', flexShrink: 0, boxShadow: '0 4px 14px rgba(0,115,230,0.3)' }}>{m.year}</div>
-                  {i < milestones.length - 1 && (
-                    <div style={{ width: '2px', flex: 1, background: 'linear-gradient(to bottom, #bfdbfe, #e8eaed)', minHeight: '40px' }} />
-                  )}
-                </div>
-                <div className="feature-card" style={{ background: '#ffffff', border: '1px solid #e8eaed', borderRadius: '14px', padding: '24px 28px', flex: 1, marginBottom: '14px', position: 'relative', overflow: 'hidden', transition: 'all 0.25s ease', boxSizing: 'border-box' }}>
-                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #0073e6, #3395f0)' }} />
-                  <h3 style={{ color: '#0a0a0a', fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '16px', margin: '0 0 8px' }}>{m.title}</h3>
-                  <p style={{ color: '#6b7280', fontSize: '14px', lineHeight: 1.8, margin: 0 }}>{m.desc}</p>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }} className="two-col">
+            <AnimatedSection>
+              <div className="team-card" style={{ background: '#ffffff', border: '1px solid #e8eaed', borderRadius: '16px', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%', transition: 'all 0.3s ease', boxSizing: 'border-box' }}>
+                <div style={{ height: '3px', background: 'linear-gradient(90deg, #0073e6, #3395f0)' }} />
+                <div style={{ padding: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', flex: 1 }}>
+                  <div style={{ width: '160px', height: '160px', borderRadius: '50%', overflow: 'hidden', border: '4px solid #eff6ff', marginBottom: '24px', boxShadow: '0 12px 24px rgba(0,0,0,0.06)' }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/assets/Maharshi.png" alt="Maharshi Siroya" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+                  <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, color: '#0a0a0a', fontSize: '22px', margin: '0 0 8px' }}>Maharshi Siroya</h3>
+                  <p style={{ color: '#0073e6', fontSize: '13px', fontWeight: 700, margin: '0 0 20px', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Co-Founder & Operations Head</p>
+                  <p style={{ color: '#4b5563', fontSize: '15px', lineHeight: 1.8, marginBottom: '24px', flex: 1 }}>Maharshi Siroya is the Co-Founder and Operations Head of Maheshwari Global Exports. With hands-on experience in manufacturing operations and production management, he specializes in strategic sourcing, supplier coordination, and quality verification. His focus is on building strong manufacturer partnerships and ensuring reliable export execution for global clients.</p>
+                  <a href="https://linkedin.com/in/maharshi-siroya-mge" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 20px', background: '#f4f5f7', color: '#0073e6', fontWeight: 600, fontSize: '13px', borderRadius: '8px', textDecoration: 'none', transition: 'all 0.2s', border: '1px solid #e8eaed' }} className="linkedin-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+                    LinkedIn Profile
+                  </a>
                 </div>
               </div>
             </AnimatedSection>
-          ))}
+
+            <AnimatedSection delay={150}>
+              <div className="team-card" style={{ background: '#ffffff', border: '1px solid #e8eaed', borderRadius: '16px', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%', transition: 'all 0.3s ease', boxSizing: 'border-box' }}>
+                <div style={{ height: '3px', background: 'linear-gradient(90deg, #0073e6, #3395f0)' }} />
+                <div style={{ padding: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', flex: 1 }}>
+                  <div style={{ width: '160px', height: '160px', borderRadius: '50%', overflow: 'hidden', border: '4px solid #eff6ff', marginBottom: '24px', boxShadow: '0 12px 24px rgba(0,0,0,0.06)' }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/assets/meet.jpeg" alt="Meet Aghara" style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.08)' }} />
+                  </div>
+                  <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, color: '#0a0a0a', fontSize: '22px', margin: '0 0 8px' }}>Meet Aghara</h3>
+                  <p style={{ color: '#0073e6', fontSize: '13px', fontWeight: 700, margin: '0 0 20px', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Co-Founder & Managing Partner</p>
+                  <p style={{ color: '#4b5563', fontSize: '15px', lineHeight: 1.8, marginBottom: '24px', flex: 1 }}>Meet Aghara is the Co-Founder and Managing Partner of Maheshwari Global Exports. With a background in Organic Chemistry and hands-on experience working with manufacturing industries, he focuses on identifying reliable suppliers, maintaining strict quality standards, and building trusted global trade relationships.</p>
+                  <a href="https://linkedin.com/in/meet-patel-shreelabhenterprise" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 20px', background: '#f4f5f7', color: '#0073e6', fontWeight: 600, fontSize: '13px', borderRadius: '8px', textDecoration: 'none', transition: 'all 0.2s', border: '1px solid #e8eaed' }} className="linkedin-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+                    LinkedIn Profile
+                  </a>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+          <style>{`
+            .team-card:hover { box-shadow: 0 16px 40px rgba(0,115,230,0.12) !important; transform: translateY(-4px); border-color: #bfdbfe !important; }
+            .team-card a.linkedin-btn:hover { background: #0073e6 !important; color: #fff !important; border-color: #0073e6 !important; }
+            @media(max-width:768px){.two-col{grid-template-columns:1fr!important}}
+          `}</style>
         </div>
       </section>
 
       {/* ── CORE PRINCIPLES — white why-choose-us style cards ── */}
-      <section aria-labelledby="principles-heading" style={{ padding: '100px 2rem', background: '#ffffff' }}>
+      <section aria-labelledby="principles-heading" style={{ padding: '100px 2rem', background: '#f4f5f7' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <AnimatedSection>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
@@ -186,34 +213,60 @@ export default function About() {
         `}</style>
       </section>
 
-      {/* ── VISION & AIM — Full bleed image ── */}
-      <section aria-labelledby="vision-heading" style={{ padding: '100px 2rem', position: 'relative', overflow: 'hidden' }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1400&q=80&auto=format&fit=crop" alt="Indian agricultural fields at sunrise" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', opacity: 1 }} loading="lazy" />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg, rgba(0,52,179,0.72) 0%, rgba(0,100,120,0.58) 50%, rgba(0,52,179,0.72) 100%)' }} />
-        <div className="bg-texture" style={{ position: 'absolute', inset: 0 }} />
-        <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px' }} className="two-col">
-          <AnimatedSection>
-            <div style={{ background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.22)', borderRadius: '14px', padding: '40px', borderTop: '3px solid rgba(255,255,255,0.6)' }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: '999px', padding: '5px 16px', marginBottom: '24px', color: '#fff', fontSize: '11px', fontWeight: 600, letterSpacing: '0.08em' }}>🔭 Vision</div>
-              <h2 id="vision-heading" style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', fontWeight: 800, color: '#fff', fontFamily: 'Poppins, sans-serif', marginBottom: '20px', lineHeight: 1.3 }}>Our Vision</h2>
-              <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '16px', lineHeight: 1.9, margin: 0 }}>To become a globally recognized <strong style={{ color: '#fff' }}>agricultural export company from India</strong> known for reliability, quality assurance, and sustainable sourcing practices.</p>
-            </div>
-          </AnimatedSection>
-          <AnimatedSection delay={150}>
-            <div style={{ background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.22)', borderRadius: '14px', padding: '40px', borderTop: '3px solid rgba(255,255,255,0.6)' }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: '999px', padding: '5px 16px', marginBottom: '24px', color: '#fff', fontSize: '11px', fontWeight: 600, letterSpacing: '0.08em' }}>🎯 Aim</div>
-              <h2 style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', fontWeight: 800, color: '#fff', fontFamily: 'Poppins, sans-serif', marginBottom: '24px', lineHeight: 1.3 }}>Our Aim</h2>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                {aims.map(aim => (
-                  <li key={aim} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                    <div style={{ width: '22px', height: '22px', background: 'rgba(255,255,255,0.2)', border: '1px solid rgba(255,255,255,0.35)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '10px', color: '#fff', fontWeight: 700 }}>✓</div>
-                    <span style={{ color: 'rgba(255,255,255,0.88)', fontSize: '15px', lineHeight: 1.7 }}>{aim}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </AnimatedSection>
+      {/* ── VISION & AIM — Premium Split Layout ── */}
+      <section aria-labelledby="vision-heading" style={{ padding: '100px 2rem', background: '#ffffff', position: 'relative' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: '80px', alignItems: 'center' }}>
+
+          {/* Content Side */}
+          <div style={{ flex: '1 1 500px', order: 2 }}>
+            <AnimatedSection>
+              <div style={{ marginBottom: '48px' }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#0073e6', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '16px' }}>🔭 Vision</div>
+                <h2 id="vision-heading" style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', fontWeight: 800, color: '#0a0a0a', fontFamily: 'Poppins, sans-serif', marginBottom: '16px', lineHeight: 1.2 }}>Our Vision</h2>
+                <p style={{ color: '#4b5563', fontSize: '16px', lineHeight: 1.9, margin: 0 }}>To become a globally recognized <strong style={{ color: '#0073e6' }}>agricultural export company from India</strong> known for reliability, quality assurance, and sustainable sourcing practices.</p>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={150}>
+              <div style={{ background: '#f8fafc', borderRadius: '24px', padding: '48px 40px', border: '1px solid #e2e8f0', boxShadow: '0 10px 30px rgba(0,0,0,0.02)', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, width: '4px', height: '100%', background: 'linear-gradient(to bottom, #0073e6, #3395f0)' }} />
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#0073e6', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '20px' }}>🎯 Aim</div>
+                <h2 style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', fontWeight: 800, color: '#0a0a0a', fontFamily: 'Poppins, sans-serif', marginBottom: '24px', lineHeight: 1.2 }}>What We Aim For</h2>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  {aims.map(aim => (
+                    <li key={aim} style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+                      <div style={{ width: '24px', height: '24px', background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '12px', color: '#0073e6', fontWeight: 800 }}>✓</div>
+                      <span style={{ color: '#4b5563', fontSize: '15px', lineHeight: 1.6 }}>{aim}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimatedSection>
+          </div>
+
+          {/* Image Side */}
+          <div style={{ flex: '1 1 500px', order: 1 }}>
+            <AnimatedSection delay={100}>
+              <div style={{ position: 'relative', borderRadius: '32px', overflow: 'hidden', height: '640px', boxShadow: '0 24px 60px rgba(0,0,0,0.1)' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {/* <img src="/assets/WhatsApp%20Image%202026-03-14%20at%2012.13.38%20PM%20(2).jpeg" alt="Quality Control: Vibrant red fruit stacked for export" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%)' }} />      */}
+                <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1400&q=80&auto=format&fit=crop" alt="Quality Control: Vibrant red fruit stacked for export" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%)' }} />
+
+                {/* Floating tags */}
+                <div style={{ position: 'absolute', bottom: '32px', left: '32px', right: '32px', display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                  <div style={{ padding: '10px 20px', background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderRadius: '999px', border: '1px solid rgba(255,255,255,0.3)', color: '#fff', fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em' }}>
+                    🌿 Sustainable Sourcing
+                  </div>
+                  <div style={{ padding: '10px 20px', background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderRadius: '999px', border: '1px solid rgba(255,255,255,0.3)', color: '#fff', fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em' }}>
+                    🏅 Quality Assured
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+
         </div>
       </section>
 
