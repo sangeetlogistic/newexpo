@@ -21,20 +21,6 @@ export default function NotFound() {
       }}>
         {/* Background Image Layer */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://images.unsplash.com/photo-1558299105-0219b165fb4e?w=1600&q=80&auto=format&fit=crop"
-          alt="Container ship silhouette"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center',
-            opacity: 0.25
-          }}
-          loading="eager"
-        />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg, rgba(10,10,10,0.85) 0%, rgba(19,19,42,0.85) 50%, rgba(10,10,10,0.85) 100%)' }} />
         <div className="bg-texture" style={{ position: 'absolute', inset: 0 }} />
 

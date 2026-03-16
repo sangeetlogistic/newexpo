@@ -1,6 +1,9 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 import { buildMetadata, breadcrumbSchema } from '@/lib/seo';
+import imgMap from '../../../public/assets/map.avif';
+import imgShipment from '../../../public/assets/shipment.avif';
 
 export const metadata = buildMetadata({
   title: 'Global Markets | Export to UAE, Saudi Arabia, Africa, Southeast Asia | India Exporter',
@@ -48,8 +51,7 @@ export default function Markets() {
 
       {/* HERO */}
       <section style={{ paddingTop: '160px', paddingBottom: '120px', position: 'relative', overflow: 'hidden', background: 'var(--color-bg-dark)' }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1600&q=80&auto=format&fit=crop" alt="Global trade routes map" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', opacity: 0.45 }} loading="eager" />
+        <Image src={imgMap} alt="Global trade routes map" fill style={{ objectFit: 'cover', objectPosition: 'center', opacity: 0.45 }} priority />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg, rgba(10,10,10,0.7) 0%, rgba(19,19,42,0.5) 50%, rgba(10,10,10,0.65) 100%)' }} />
         <div className="bg-texture" style={{ position: 'absolute', inset: 0 }} />
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
@@ -64,7 +66,7 @@ export default function Markets() {
             <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '18px', maxWidth: '560px', lineHeight: 1.9 }}>Quality-verified agricultural exports delivered across 20+ global markets with full compliance documentation.</p>
           </AnimatedSection>
           <AnimatedSection delay={200}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '48px' }}>
+            <div className="hero-stats-grid" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '48px' }}>
               {[{ value: '4', label: 'Global Regions' }, { value: '20+', label: 'Target Countries' }, { value: '50+', label: 'Product Variants' }, { value: '100%', label: 'Quality Assured' }].map(s => (
                 <div key={s.label} style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '8px', padding: '18px 28px', textAlign: 'center', minWidth: '120px' }}>
                   <div style={{ fontSize: '1.5rem', fontWeight: 900, fontFamily: 'Poppins, sans-serif', color: '#fff', lineHeight: 1 }}>{s.value}</div>
@@ -96,12 +98,12 @@ export default function Markets() {
                   {/* Number watermark */}
                   <div style={{ position: 'absolute', top: '18px', right: '22px', fontFamily: 'Poppins, sans-serif', fontWeight: 900, fontSize: '52px', color: '#f0f4ff', lineHeight: 1, userSelect: 'none' }}>{r.number}</div>
                   <div style={{ padding: '28px 28px 24px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+                    <div className="region-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                         <div style={{ width: '52px', height: '52px', background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '26px', flexShrink: 0 }}>{r.icon}</div>
                         <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, color: '#0a0a0a', fontSize: '18px', margin: 0 }}>{r.name}</h3>
                       </div>
-                      <span style={{ background: r.priorityBg, border: `1px solid ${r.priorityBorder}`, color: r.priorityColor, fontSize: '10px', fontWeight: 700, padding: '4px 12px', borderRadius: '999px', letterSpacing: '0.07em', textTransform: 'uppercase', flexShrink: 0, marginLeft: '8px' }}>{r.priority}</span>
+                      <span className="region-badge" style={{ background: r.priorityBg, border: `1px solid ${r.priorityBorder}`, color: r.priorityColor, fontSize: '10px', fontWeight: 700, padding: '4px 12px', borderRadius: '999px', letterSpacing: '0.07em', textTransform: 'uppercase', flexShrink: 0, marginLeft: '8px' }}>{r.priority}</span>
                     </div>
                     <p style={{ color: '#6b7280', fontSize: '13px', lineHeight: 1.8, marginBottom: '18px' }}>{r.desc}</p>
                     <div style={{ marginBottom: '14px' }}>
@@ -127,15 +129,19 @@ export default function Markets() {
           </div>
           <style>{`
             .feature-card:hover{box-shadow:0 12px 36px rgba(0,115,230,0.10);transform:translateY(-4px);border-color:#bfdbfe!important}
-            @media(max-width:768px){.two-col{grid-template-columns:1fr!important}}
+            @media(max-width:768px){
+              .two-col{grid-template-columns:1fr!important}
+              .hero-stats-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+              .region-header { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+              .region-badge { margin-left: 0 !important; }
+            }
           `}</style>
         </div>
       </section>
 
       {/* CTA */}
       <section style={{ padding: '100px 2rem', position: 'relative', overflow: 'hidden' }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5eb95?w=1400&q=80&auto=format&fit=crop" alt="Global shipping and trade" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', opacity: 0.6 }} loading="lazy" />
+        <Image src={imgShipment} alt="Global shipping and trade" fill style={{ objectFit: 'cover', objectPosition: 'center', opacity: 0.6 }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg, rgba(0,52,179,0.72) 0%, rgba(0,100,120,0.60) 100%)' }} />
         <div className="bg-texture" style={{ position: 'absolute', inset: 0 }} />
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '640px', margin: '0 auto', textAlign: 'center' }}>

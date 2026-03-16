@@ -61,7 +61,8 @@ export const organizationSchema = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer service',
-    email: 'info@maheshwariglobalexports.com',
+    telephone: ['+91-80000-30307', '+91-91044-85504'],
+    email: 'info@mgeglobal.in',
   },
   sameAs: [],
   foundingDate: '2026',

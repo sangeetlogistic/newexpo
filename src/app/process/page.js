@@ -1,6 +1,9 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 import { buildMetadata, breadcrumbSchema } from '@/lib/seo';
+import imgHandshake from '../../../public/assets/handshake.avif';
+import imgShip from '../../../public/assets/ship.avif';
 
 export const metadata = buildMetadata({
   title: 'Our Export Process | Pre-Shipment Inspection | Quality Control Export India',
@@ -25,8 +28,7 @@ export default function Process() {
 
       {/* ── HERO — Dark cinematic (unchanged) ── */}
       <section style={{ paddingTop: '160px', paddingBottom: '120px', position: 'relative', overflow: 'hidden', background: 'var(--color-bg-dark)' }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&q=80&auto=format&fit=crop" alt="Quality control and inspection process in an agricultural export warehouse" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', opacity: 0.45 }} loading="eager" />
+        <Image src={imgHandshake} alt="Quality control and inspection process in an agricultural export warehouse" fill style={{ objectFit: 'cover', objectPosition: 'center 40%', opacity: 0.45 }} priority />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg, rgba(10,10,10,0.7) 0%, rgba(19,19,42,0.5) 50%, rgba(10,10,10,0.65) 100%)' }} />
         <div className="bg-texture" style={{ position: 'absolute', inset: 0 }} />
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
@@ -69,11 +71,11 @@ export default function Process() {
 
           {steps.map((step, i) => (
             <AnimatedSection key={step.number} delay={i * 80}>
-              <div style={{ display: 'flex', gap: '0', position: 'relative' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginRight: '24px', flexShrink: 0 }}>
+              <div className="step-container" style={{ display: 'flex', gap: '0', position: 'relative' }}>
+                <div className="step-indicator" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginRight: '24px', flexShrink: 0 }}>
                   <div style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, #0073e6, #3395f0)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Poppins, sans-serif', fontWeight: 800, fontSize: '14px', color: '#fff', flexShrink: 0, boxShadow: '0 4px 14px rgba(0,115,230,0.3)' }}>{step.number}</div>
                   {i < steps.length - 1 && (
-                    <div style={{ width: '2px', flex: 1, background: 'linear-gradient(to bottom, #bfdbfe, #e8eaed)', marginTop: '8px', minHeight: '48px' }} />
+                    <div className="step-line" style={{ width: '2px', flex: 1, background: 'linear-gradient(to bottom, #bfdbfe, #e8eaed)', marginTop: '8px', minHeight: '48px' }} />
                   )}
                 </div>
                 <div className="feature-card" style={{ flex: 1, padding: '28px 28px 24px', marginBottom: '20px', background: '#ffffff', borderRadius: '14px', border: '1px solid #e8eaed', position: 'relative', overflow: 'hidden', transition: 'all 0.25s ease', boxSizing: 'border-box' }}>
@@ -91,7 +93,7 @@ export default function Process() {
                   </div>
                   <p style={{ color: '#0052b3', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '10px 0 6px' }}>{step.h3}</p>
                   <p style={{ color: '#4b5563', fontSize: '14px', lineHeight: 1.8, marginBottom: '14px' }}>{step.desc}</p>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                  <div className="step-details-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
                     {step.details.map(d => (
                       <div key={d} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: '#6b7280', background: '#f4f5f7', padding: '6px 10px', borderRadius: '6px' }}>
                         <span style={{ color: '#0073e6', flexShrink: 0, fontWeight: 700 }}>✓</span> {d}
@@ -102,14 +104,22 @@ export default function Process() {
               </div>
             </AnimatedSection>
           ))}
-          <style>{`.feature-card:hover{box-shadow:0 12px 36px rgba(0,115,230,0.10);transform:translateY(-4px);border-color:#bfdbfe!important}`}</style>
+          <style>{`
+            .feature-card{box-sizing:border-box}
+            .feature-card:hover{box-shadow:0 12px 36px rgba(0,115,230,0.10);transform:translateY(-4px);border-color:#bfdbfe!important}
+            @media(max-width: 768px) {
+              .step-container { flex-direction: column !important; margin-bottom: 20px; }
+              .step-indicator { flex-direction: row !important; margin-right: 0 !important; margin-bottom: 12px; align-items: center !important; }
+              .step-line { display: none !important; }
+              .step-details-grid { grid-template-columns: 1fr !important; }
+            }
+          `}</style>
         </div>
       </section>
 
       {/* ── WHY IT MATTERS — image section ── */}
       <section style={{ padding: '100px 2rem', position: 'relative', overflow: 'hidden' }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1400&q=80&auto=format&fit=crop" alt="Cargo containers at shipping port" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', opacity: 0.7 }} loading="lazy" />
+        <Image src={imgShip} alt="Cargo containers at shipping port" fill style={{ objectFit: 'cover', objectPosition: 'center', opacity: 0.7 }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg, rgba(0,52,179,0.72) 0%, rgba(0,100,120,0.60) 100%)' }} />
         <div className="bg-texture" style={{ position: 'absolute', inset: 0 }} />
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto' }}>

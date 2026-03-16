@@ -1,6 +1,8 @@
 import AnimatedSection from '@/components/AnimatedSection';
 import { buildMetadata, breadcrumbSchema } from '@/lib/seo';
 import ContactClient from './ContactClient';
+import Image from 'next/image';
+import imgOffice from '../../../public/assets/office.avif';
 
 export const metadata = buildMetadata({
   title: 'Contact Us | Request Quote — Agro Export India | Contact Indian Rice & Spice Exporter',
@@ -19,7 +21,7 @@ export default function Contact() {
       <section style={{ paddingTop: '160px', paddingBottom: '110px', position: 'relative', overflow: 'hidden', background: '#0a0a0a' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80&auto=format&fit=crop"
+          src={imgOffice.src}
           alt="Modern office representing Maheshwari Global Exports contact and enquiry center in Rajkot Gujarat"
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', opacity: 1 }}
           loading="eager"

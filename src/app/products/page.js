@@ -1,10 +1,13 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 import { buildMetadata, breadcrumbSchema, productSchema } from '@/lib/seo';
 import imgRice from '../../../public/assets/basmati-rice.jpg';
 import imgSpices from '../../../public/assets/spices.jpg';
 import imgPulses from '../../../public/assets/pulses.avif';
 import imgFruits from '../../../public/assets/fruits.avif';
+import imgProducthome from '../../../public/assets/producthome.avif';
+import imgGlobalTrade from '../../../public/assets/gloabltrade.avif';
 
 export const metadata = buildMetadata({
   title: 'Our Products | Rice Exporter India | Spice Exporter India | Pulses Exporter India',
@@ -65,7 +68,7 @@ export default function Products() {
       <section style={{ paddingTop: '160px', paddingBottom: '120px', position: 'relative', overflow: 'hidden', background: 'var(--color-bg-dark)' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1600&q=80&auto=format&fit=crop"
+          src={imgProducthome.src}
           alt="Colorful Indian spices, rice, and pulses representing Maheshwari Global Exports product portfolio"
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', opacity: 0.5 }}
           loading="eager"
@@ -111,8 +114,7 @@ export default function Products() {
                   <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', alignItems: 'stretch' }} className="two-col-product">
                     {/* Product image */}
                     <div style={{ position: 'relative', overflow: 'hidden', minHeight: '220px' }}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={cat.img.src} alt={cat.imgAlt} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }} loading="lazy" className="cat-img" />
+                      <Image src={cat.img} alt={cat.imgAlt} fill style={{ objectFit: 'cover', transition: 'transform 0.4s ease' }} className="cat-img" />
                       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent 60%, rgba(255,255,255,0.15) 100%)' }} />
                       <div style={{ position: 'absolute', bottom: '14px', left: '14px' }}>
                         <span style={{ background: 'rgba(0,115,230,0.9)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '4px 12px', borderRadius: '999px', letterSpacing: '0.08em', textTransform: 'uppercase', backdropFilter: 'blur(4px)' }}>Export Ready</span>
@@ -166,8 +168,7 @@ export default function Products() {
 
       {/* ── PRIVATE LABEL ── */}
       <section style={{ padding: '100px 2rem', position: 'relative', overflow: 'hidden' }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400&q=80&auto=format&fit=crop" alt="Packaging and private label export" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', opacity: 0.5 }} loading="lazy" />
+        <Image src={imgGlobalTrade} alt="Packaging and private label export" fill style={{ objectFit: 'cover', objectPosition: 'center', opacity: 0.5 }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.7) 100%)' }} />
         <div className="bg-texture" style={{ position: 'absolute', inset: 0 }} />
         <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'center', position: 'relative', zIndex: 10 }} className="two-col">

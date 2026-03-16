@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const cols = {
   company: [
@@ -26,7 +27,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', marginBottom: '20px' }}>
-              <img src="/assets/expo-white.png" alt="Maheshwari Global Exports Logo" style={{ height: '50px', width: 'auto' }} />
+              <Image src="/assets/expo-white.png" alt="Maheshwari Global Exports Logo" width={160} height={50} style={{ objectFit: 'contain' }} />
             </Link>
             <p style={{ fontSize: '13px', lineHeight: 1.9, color: 'var(--color-primary-light)', fontStyle: 'italic', fontFamily: 'Poppins, sans-serif', marginBottom: '14px' }}>
               &ldquo;Delivering Quality. Building Global Trust.&rdquo;
@@ -62,12 +63,16 @@ export default function Footer() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '13px' }}>
               {[
                 { icon: '📍', text: 'Rajkot, Gujarat, India' },
-                { icon: '✉️', text: 'info@maheshwariglobalexports.com' },
-                { icon: '📞', text: '+91-XXXXXXXXXX' },
+                { icon: '✉️', text: 'info@mgeglobal.in' },
+                { icon: '📞', text: ['+91 80000 30307', '+91 91044 85504'] },
               ].map(c => (
-                <div key={c.text} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '13px', color: 'var(--color-text-secondary)' }}>
-                  <span style={{ flexShrink: 0 }}>{c.icon}</span>
-                  <span>{c.text}</span>
+                <div key={Array.isArray(c.text) ? c.text[0] : c.text} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '13px', color: 'var(--color-text-secondary)' }}>
+                  <span style={{ flexShrink: 0, marginTop: '2px' }}>{c.icon}</span>
+                  {Array.isArray(c.text) ? (
+                    <span style={{ fontWeight: 500 }}>{c.text.join(' / ')}</span>
+                  ) : (
+                    <span>{c.text}</span>
+                  )}
                 </div>
               ))}
             </div>

@@ -1,10 +1,14 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 import { buildMetadata, breadcrumbSchema } from '@/lib/seo';
 import imgRice from '../../public/assets/basmati-rice.jpg';
 import imgSpices from '../../public/assets/spices.jpg';
 import imgPulses from '../../public/assets/pulses.avif';
 import imgFruits from '../../public/assets/fruits.avif';
+import imgHomeHero from '../../public/assets/homehero.avif';
+import imgGlobalTrade from '../../public/assets/gloabltrade.avif';
+import imgMap from '../../public/assets/map.avif';
 
 export const metadata = buildMetadata({
   title: 'Maheshwari Global Exports | Agricultural Exporter from India | Rice & Spice Export Company',
@@ -79,12 +83,12 @@ export default function Home() {
 
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section aria-label="Hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', background: '#0a0a0a' }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=85&auto=format&fit=crop"
+        <Image
+          src={imgHomeHero}
           alt="Golden wheat fields — premium Indian agricultural exports"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', opacity: 0.45 }}
-          loading="eager"
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'center 40%', opacity: 0.45 }}
+          priority
         />
         {/* Left-heavy gradient so text on left is readable, right is more image */}
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(105deg, rgba(5,5,5,0.92) 0%, rgba(5,5,5,0.80) 40%, rgba(5,5,5,0.45) 70%, rgba(5,5,5,0.2) 100%)' }} />
@@ -205,8 +209,7 @@ export default function Home() {
           <AnimatedSection delay={150}>
             <div style={{ position: 'relative' }}>
               <div style={{ borderRadius: '12px', overflow: 'hidden', aspectRatio: '4/3', position: 'relative' }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80&auto=format&fit=crop" alt="Export operations and logistics in Rajkot Gujarat India" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
+                <Image src={imgGlobalTrade} alt="Export operations and logistics in Rajkot Gujarat India" fill style={{ objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%)' }} />
                 <div style={{ position: 'absolute', bottom: '20px', left: '20px', right: '20px', background: 'rgba(255,255,255,0.97)', borderRadius: '8px', padding: '14px 18px', boxShadow: '0 4px 20px rgba(0,0,0,0.15)' }}>
                   <div style={{ color: '#0073e6', fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '4px' }}>Base of Operations</div>
@@ -216,7 +219,7 @@ export default function Home() {
               {/* Floating badge */}
               <div style={{ position: 'absolute', top: '-16px', right: '-16px', background: 'linear-gradient(135deg,#0073e6,#3395f0)', padding: '18px 22px', borderRadius: '10px', boxShadow: '0 8px 28px rgba(0,115,230,0.45)', textAlign: 'center' }}>
                 <div style={{ fontSize: '26px', fontWeight: 900, fontFamily: 'Poppins, sans-serif', color: '#fff', lineHeight: 1 }}>100%</div>
-                <div style={{ fontSize: '9px', color: 'rgba(255,255,255,0.85)', textTransform: 'uppercase', letterSpacing: '0.12em', marginTop: '4px', fontWeight: 700 }}>Quality<br/>Verified</div>
+                <div style={{ fontSize: '9px', color: 'rgba(255,255,255,0.85)', textTransform: 'uppercase', letterSpacing: '0.12em', marginTop: '4px', fontWeight: 700 }}>Quality<br />Verified</div>
               </div>
             </div>
           </AnimatedSection>
@@ -249,8 +252,7 @@ export default function Home() {
                   <div style={{ background: '#ffffff', border: '1px solid #e8eaed', borderRadius: '10px', overflow: 'hidden', cursor: 'pointer', transition: 'all 0.25s ease', position: 'relative' }} className="product-card">
                     {/* Product image */}
                     <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden' }}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={p.img.src} alt={p.imgAlt} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }} loading="lazy" className="product-card-img" />
+                      <Image src={p.img} alt={p.imgAlt} fill style={{ objectFit: 'cover', transition: 'transform 0.4s ease' }} className="product-card-img" />
                       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 55%)' }} />
                       <div style={{ position: 'absolute', top: '12px', right: '12px', background: 'rgba(255,255,255,0.95)', color: '#0073e6', fontSize: '9px', fontWeight: 700, padding: '3px 9px', borderRadius: '999px', letterSpacing: '0.06em', textTransform: 'uppercase', boxShadow: '0 2px 8px rgba(0,0,0,0.12)' }}>{p.tag}</div>
                     </div>
@@ -325,7 +327,7 @@ export default function Home() {
             <p style={{ color: '#5a6272', fontSize: '15px', lineHeight: 1.85, marginBottom: '32px' }}>
               From Gujarat&apos;s farms to dinner tables across four continents — structured, reliable, and fully documented.
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', marginBottom: '32px' }}>
               {markets.map((m) => (
                 <div key={m.region} style={{ background: '#ffffff', border: '1px solid #e8eaed', borderRadius: '8px', padding: '14px 18px', display: 'flex', alignItems: 'center', gap: '16px' }}>
                   <div style={{ width: '36px', height: '36px', background: '#eff6ff', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
@@ -344,13 +346,12 @@ export default function Home() {
           </AnimatedSection>
 
           <AnimatedSection delay={150}>
-            <div style={{ borderRadius: '12px', overflow: 'hidden', position: 'relative' }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=900&q=80&auto=format&fit=crop"
+            <div style={{ borderRadius: '12px', overflow: 'hidden', position: 'relative', aspectRatio: '4/3' }}>
+              <Image
+                src={imgMap}
                 alt="Global trade routes map representing worldwide export markets"
-                style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block' }}
-                loading="lazy"
+                fill
+                style={{ objectFit: 'cover' }}
               />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%)' }} />
               <div style={{ position: 'absolute', bottom: '20px', left: '20px', right: '20px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
@@ -366,8 +367,7 @@ export default function Home() {
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
       <section style={{ position: 'relative', overflow: 'hidden', background: '#0a0a0a' }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1400&q=70&auto=format&fit=crop" alt="" aria-hidden="true" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 60%', opacity: 0.35 }} loading="lazy" />
+        <Image src={imgHomeHero} alt="" fill style={{ objectFit: 'cover', objectPosition: 'center 60%', opacity: 0.35 }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg,rgba(0,82,179,0.6) 0%,rgba(5,5,5,0.85) 60%)' }} />
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '88px 2rem', display: 'grid', gridTemplateColumns: '1fr auto', gap: '48px', alignItems: 'center' }} className="cta-grid">
           <AnimatedSection>

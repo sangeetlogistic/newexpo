@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 import { buildMetadata, breadcrumbSchema } from '@/lib/seo';
+import handshake2 from '../../../public/assets/handshake2.avif';
 
 export const metadata = buildMetadata({
   title: 'Why Choose Us | Reliable Agricultural Exporter India | Verified Export House',
@@ -78,12 +80,12 @@ export default function WhyChooseUs() {
 
       {/* ── HERO ── */}
       <section style={{ paddingTop: '140px', paddingBottom: '100px', position: 'relative', overflow: 'hidden', background: '#0a0a0a' }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=80&auto=format&fit=crop"
+        <Image
+          src={handshake2}
           alt="Business handshake representing trusted global export partnership"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', opacity: 1 }}
-          loading="eager"
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'center 40%', opacity: 1 }}
+          priority
         />
         {/* Left-heavy gradient so text stays readable */}
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(100deg, rgba(10,10,10,0.92) 40%, rgba(10,10,10,0.45) 100%)' }} />
@@ -106,9 +108,9 @@ export default function WhyChooseUs() {
             </p>
 
             {/* Quick stats bar */}
-            <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
+            <div className="hero-stats" style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
               {stats.map(s => (
-                <div key={s.label} style={{ borderLeft: '2px solid #0073e6', paddingLeft: '16px' }}>
+                <div key={s.label} className="stats-item" style={{ borderLeft: '2px solid #0073e6', paddingLeft: '16px' }}>
                   <div style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, color: '#fff', fontSize: '22px', lineHeight: 1 }}>{s.value}</div>
                   <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: '11px', marginTop: '4px', letterSpacing: '0.06em' }}>{s.label}</div>
                 </div>
@@ -164,7 +166,11 @@ export default function WhyChooseUs() {
           <style>{`
             .feature-card:hover { box-shadow: 0 12px 36px rgba(0,115,230,0.10); transform: translateY(-4px); border-color: #bfdbfe !important; }
             @media(max-width:900px){.three-col{grid-template-columns:repeat(2,1fr)!important}}
-            @media(max-width:560px){.three-col{grid-template-columns:1fr!important}}
+            @media(max-width:560px){
+              .three-col{grid-template-columns:1fr!important}
+              .hero-stats { gap: 20px !important; }
+              .stats-item { flex: 1 1 40%; }
+            }
           `}</style>
         </div>
       </section>
@@ -183,31 +189,33 @@ export default function WhyChooseUs() {
           </AnimatedSection>
 
           <AnimatedSection delay={100}>
-            <div style={{ borderRadius: '14px', overflow: 'hidden', border: '1px solid #e8eaed', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}>
-              {/* Header row */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr' }}>
-                {['Parameter', 'Maheshwari Global Exports', 'Typical Broker / Exporter'].map((h, i) => (
-                  <div key={h} style={{
-                    padding: '16px 22px',
-                    fontFamily: 'Poppins, sans-serif',
-                    fontWeight: 700,
-                    fontSize: '11px',
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
-                    background: i === 1 ? '#0073e6' : i === 0 ? '#0a0a0a' : '#f4f5f7',
-                    color: i === 2 ? '#6b7280' : '#fff',
-                    borderRight: i < 2 ? '1px solid rgba(255,255,255,0.1)' : 'none',
-                  }}>{h}</div>
+            <div style={{ overflowX: 'auto', paddingBottom: '16px', margin: '0 -1rem', padding: '0 1rem 16px' }}>
+              <div style={{ minWidth: '768px', borderRadius: '14px', overflow: 'hidden', border: '1px solid #e8eaed', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}>
+                {/* Header row */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr' }}>
+                  {['Parameter', 'Maheshwari Global Exports', 'Typical Broker / Exporter'].map((h, i) => (
+                    <div key={h} style={{
+                      padding: '16px 22px',
+                      fontFamily: 'Poppins, sans-serif',
+                      fontWeight: 700,
+                      fontSize: '11px',
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      background: i === 1 ? '#0073e6' : i === 0 ? '#0a0a0a' : '#f4f5f7',
+                      color: i === 2 ? '#6b7280' : '#fff',
+                      borderRight: i < 2 ? '1px solid rgba(255,255,255,0.1)' : 'none',
+                    }}>{h}</div>
+                  ))}
+                </div>
+                {/* Data rows */}
+                {comparisonRows.map(([param, us, them], idx, arr) => (
+                  <div key={param} style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr', borderBottom: idx < arr.length - 1 ? '1px solid #f3f4f6' : 'none', background: idx % 2 === 0 ? '#fafafa' : '#ffffff' }}>
+                    <div style={{ padding: '14px 22px', color: '#0a0a0a', fontWeight: 600, fontSize: '13px', borderRight: '1px solid #f3f4f6' }}>{param}</div>
+                    <div style={{ padding: '14px 22px', color: '#059669', fontWeight: 600, fontSize: '13px', borderRight: '1px solid #f3f4f6', background: '#f0fdf4' }}>{us}</div>
+                    <div style={{ padding: '14px 22px', color: '#9ca3af', fontSize: '13px' }}>{them}</div>
+                  </div>
                 ))}
               </div>
-              {/* Data rows */}
-              {comparisonRows.map(([param, us, them], idx, arr) => (
-                <div key={param} style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr', borderBottom: idx < arr.length - 1 ? '1px solid #f3f4f6' : 'none', background: idx % 2 === 0 ? '#fafafa' : '#ffffff' }}>
-                  <div style={{ padding: '14px 22px', color: '#0a0a0a', fontWeight: 600, fontSize: '13px', borderRight: '1px solid #f3f4f6' }}>{param}</div>
-                  <div style={{ padding: '14px 22px', color: '#059669', fontWeight: 600, fontSize: '13px', borderRight: '1px solid #f3f4f6', background: '#f0fdf4' }}>{us}</div>
-                  <div style={{ padding: '14px 22px', color: '#9ca3af', fontSize: '13px' }}>{them}</div>
-                </div>
-              ))}
             </div>
           </AnimatedSection>
         </div>

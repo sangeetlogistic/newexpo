@@ -1,6 +1,12 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 import { buildMetadata, breadcrumbSchema } from '@/lib/seo';
+import imgHand from '../../../public/assets/hand.avif';
+import imgShipment from '../../../public/assets/shipment.avif';
+import imgReal from '../../../public/assets/real.jpeg';
+import imgMeet from '../../../public/assets/meet.jpeg';
+import imgMaharshi from '../../../public/assets/Maharshi.png';
 
 export const metadata = buildMetadata({
   title: 'About Us | Indian Merchant Export Company | Gujarat Export House',
@@ -22,12 +28,6 @@ const aims = [
   'Support ethical and sustainable sourcing practices',
 ];
 
-const milestones = [
-  { year: '2026', title: 'Company Founded', desc: 'Established in Rajkot, Gujarat as a merchant export house focused on agricultural commodities.' },
-  { year: '2026', title: 'First Export Shipment', desc: 'Dispatched first verified shipment of premium basmati rice to the GCC region.' },
-  { year: '2026', title: 'Product Portfolio Expansion', desc: 'Added spices, pulses, and fresh produce to our export-ready product range.' },
-  { year: '2026+', title: 'Global Growth', desc: 'Expanding structured export operations across Middle East, Africa, and Southeast Asia.' },
-];
 
 export default function About() {
   const breadcrumb = breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'About Us', path: '/about' }]);
@@ -37,12 +37,12 @@ export default function About() {
 
       {/* ── HERO HEADER — Dark cinematic (unchanged) ── */}
       <section style={{ paddingTop: '160px', paddingBottom: '120px', position: 'relative', overflow: 'hidden', background: 'var(--color-bg-dark)' }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?w=1600&q=80&auto=format&fit=crop"
+        <Image
+          src={imgHand}
           alt="Container ship loading representing international trade and export logistics"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 60%', opacity: 0.6 }}
-          loading="eager"
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'center 60%', opacity: 0.6 }}
+          priority
         />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg, rgba(10,10,10,0.8) 0%, rgba(19,19,42,0.65) 50%, rgba(10,10,10,0.75) 100%)' }} />
         <div className="bg-texture" style={{ position: 'absolute', inset: 0 }} />
@@ -99,8 +99,7 @@ export default function About() {
           <AnimatedSection delay={150}>
             <div style={{ position: 'relative' }}>
               <div style={{ aspectRatio: '4/5', borderRadius: '14px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/assets/WhatsApp%20Image%202026-03-14%20at%2012.13.36%20PM%20(1).jpeg" alt="Workers processing export-quality green bananas" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} loading="lazy" />
+                <Image src={imgReal} alt="Workers processing export-quality green bananas" fill style={{ objectFit: 'cover', objectPosition: 'center' }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 40%)' }} />
                 <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px' }}>
                   <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '6px' }}>EST. 2026</div>
@@ -140,9 +139,8 @@ export default function About() {
               <div className="team-card" style={{ background: '#ffffff', border: '1px solid #e8eaed', borderRadius: '16px', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%', transition: 'all 0.3s ease', boxSizing: 'border-box' }}>
                 <div style={{ height: '3px', background: 'linear-gradient(90deg, #0073e6, #3395f0)' }} />
                 <div style={{ padding: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', flex: 1 }}>
-                  <div style={{ width: '160px', height: '160px', borderRadius: '50%', overflow: 'hidden', border: '4px solid #eff6ff', marginBottom: '24px', boxShadow: '0 12px 24px rgba(0,0,0,0.06)' }}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/assets/Maharshi.png" alt="Maharshi Siroya" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <div style={{ position: 'relative', width: '160px', height: '160px', borderRadius: '50%', overflow: 'hidden', border: '4px solid #eff6ff', marginBottom: '24px', boxShadow: '0 12px 24px rgba(0,0,0,0.06)' }}>
+                    <Image src={imgMaharshi} alt="Maharshi Siroya" fill style={{ objectFit: 'cover' }} />
                   </div>
                   <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, color: '#0a0a0a', fontSize: '22px', margin: '0 0 8px' }}>Maharshi Siroya</h3>
                   <p style={{ color: '#0073e6', fontSize: '13px', fontWeight: 700, margin: '0 0 20px', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Co-Founder & Operations Head</p>
@@ -159,9 +157,8 @@ export default function About() {
               <div className="team-card" style={{ background: '#ffffff', border: '1px solid #e8eaed', borderRadius: '16px', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%', transition: 'all 0.3s ease', boxSizing: 'border-box' }}>
                 <div style={{ height: '3px', background: 'linear-gradient(90deg, #0073e6, #3395f0)' }} />
                 <div style={{ padding: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', flex: 1 }}>
-                  <div style={{ width: '160px', height: '160px', borderRadius: '50%', overflow: 'hidden', border: '4px solid #eff6ff', marginBottom: '24px', boxShadow: '0 12px 24px rgba(0,0,0,0.06)' }}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/assets/meet.jpeg" alt="Meet Aghara" style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.08)' }} />
+                  <div style={{ position: 'relative', width: '160px', height: '160px', borderRadius: '50%', overflow: 'hidden', border: '4px solid #eff6ff', marginBottom: '24px', boxShadow: '0 12px 24px rgba(0,0,0,0.06)' }}>
+                    <Image src={imgMeet} alt="Meet Aghara" fill style={{ objectFit: 'cover', transform: 'scale(1.08)' }} />
                   </div>
                   <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, color: '#0a0a0a', fontSize: '22px', margin: '0 0 8px' }}>Meet Aghara</h3>
                   <p style={{ color: '#0073e6', fontSize: '13px', fontWeight: 700, margin: '0 0 20px', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Co-Founder & Managing Partner</p>
@@ -251,7 +248,7 @@ export default function About() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 {/* <img src="/assets/WhatsApp%20Image%202026-03-14%20at%2012.13.38%20PM%20(2).jpeg" alt="Quality Control: Vibrant red fruit stacked for export" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%)' }} />      */}
-                <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1400&q=80&auto=format&fit=crop" alt="Quality Control: Vibrant red fruit stacked for export" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
+                <Image src={imgShipment} alt="Global Trade and Agricultural Export Logistics" fill style={{ objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%)' }} />
 
                 {/* Floating tags */}

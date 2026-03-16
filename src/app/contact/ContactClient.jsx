@@ -2,11 +2,13 @@
 
 import { useState } from 'react';
 import AnimatedSection from '@/components/AnimatedSection';
+import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-number-input';
 
 const contactInfo = [
   { icon: '📍', label: 'Office Address', value: 'Rajkot, Gujarat, India', sub: 'Headquarters' },
-  { icon: '✉️', label: 'Email Address', value: 'info@maheshwariglobalexports.com', sub: 'We respond within 24 hours' },
-  { icon: '📞', label: 'Phone', value: '+91-XXXXXXXXXX', sub: 'Mon–Sat, 9 AM – 6 PM IST' },
+  { icon: '✉️', label: 'Email Address', value: 'info@mgeglobal.in', sub: 'We respond within 24 hours' },
+  { icon: '📞', label: 'Phone', value: ['+91 80000 30307', '+91 91044 85504'], sub: 'Mon–Sat, 9 AM – 6 PM IST' },
 ];
 
 const expectItems = [
@@ -17,10 +19,34 @@ const expectItems = [
 ];
 
 export default function ContactClient() {
-  const [formData, setFormData] = useState({ name: '', email: '', company: '', country: '', product: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', country: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
+
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
-  const handleSubmit = (e) => { e.preventDefault(); setSubmitted(true); };
+  const handlePhoneChange = (value) => setFormData({ ...formData, phone: value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error('Failed to send message');
+      setSubmitted(true);
+    } catch (err) {
+      setError(err.message || 'Error connecting to server. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -48,8 +74,14 @@ export default function ContactClient() {
                   </div>
                   <div>
                     <div style={{ fontSize: '10px', color: '#0073e6', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '3px', fontWeight: 700 }}>{info.label}</div>
-                    <div style={{ color: '#0a0a0a', fontWeight: 600, fontSize: '13px' }}>{info.value}</div>
-                    <div style={{ color: '#9ca3af', fontSize: '11px', marginTop: '2px' }}>{info.sub}</div>
+                    {Array.isArray(info.value) ? (
+                      <div style={{ color: '#0a0a0a', fontWeight: 600, fontSize: '14px', lineHeight: 1.6 }}>
+                        {info.value.join(' / ')}
+                      </div>
+                    ) : (
+                      <div style={{ color: '#0a0a0a', fontWeight: 600, fontSize: '14px', lineHeight: 1.6 }}>{info.value}</div>
+                    )}
+                    <div style={{ color: '#9ca3af', fontSize: '11px', marginTop: '4px' }}>{info.sub}</div>
                   </div>
                 </div>
               ))}
@@ -95,17 +127,31 @@ export default function ContactClient() {
                     {[
                       { name: 'name', label: 'Full Name *', placeholder: 'Your name', type: 'text', required: true },
                       { name: 'email', label: 'Email Address *', placeholder: 'your@email.com', type: 'email', required: true },
+                      { name: 'phone', label: 'Phone Number *', placeholder: 'Enter phone number', type: 'tel', required: true },
                       { name: 'country', label: 'Country', placeholder: 'Your country', type: 'text', required: false },
                     ].map(field => (
                       <div key={field.name}>
                         <label style={{ display: 'block', fontSize: '10px', fontWeight: 700, color: '#374151', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '7px' }}>{field.label}</label>
-                        <input
-                          type={field.type} name={field.name} value={formData[field.name]}
-                          onChange={handleChange} required={field.required} placeholder={field.placeholder}
-                          className="form-input"
-                          onFocus={e => { e.target.style.borderColor = '#0073e6'; e.target.style.boxShadow = '0 0 0 3px rgba(0,115,230,0.12)'; }}
-                          onBlur={e => { e.target.style.borderColor = '#d1d5db'; e.target.style.boxShadow = 'none'; }}
-                        />
+                        {field.name === 'phone' ? (
+                          <PhoneInput
+                            international
+                            defaultCountry="IN"
+                            value={formData.phone}
+                            onChange={handlePhoneChange}
+                            required={field.required}
+                            className="form-input phone-input-override"
+                            onFocus={e => { if (e.target.parentElement) { e.target.parentElement.style.borderColor = '#0073e6'; e.target.parentElement.style.boxShadow = '0 0 0 3px rgba(0,115,230,0.12)'; } }}
+                            onBlur={e => { if (e.target.parentElement) { e.target.parentElement.style.borderColor = '#d1d5db'; e.target.parentElement.style.boxShadow = 'none'; } }}
+                          />
+                        ) : (
+                          <input
+                            type={field.type} name={field.name} value={formData[field.name]}
+                            onChange={handleChange} required={field.required} placeholder={field.placeholder}
+                            className="form-input"
+                            onFocus={e => { e.target.style.borderColor = '#0073e6'; e.target.style.boxShadow = '0 0 0 3px rgba(0,115,230,0.12)'; }}
+                            onBlur={e => { e.target.style.borderColor = '#d1d5db'; e.target.style.boxShadow = 'none'; }}
+                          />
+                        )}
                       </div>
                     ))}
                   </div>
@@ -119,12 +165,17 @@ export default function ContactClient() {
                     />
                   </div>
 
-                  <button type="submit" style={{ padding: '15px', fontSize: '12px', width: '100%', background: 'linear-gradient(135deg, #0073e6, #3395f0)', color: '#fff', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', borderRadius: '6px', border: 'none', cursor: 'pointer', fontFamily: 'Inter, sans-serif', boxShadow: '0 4px 20px rgba(0,115,230,0.35)', transition: 'all 0.25s ease' }}
-                    onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 6px 28px rgba(0,115,230,0.5)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,115,230,0.35)'; e.currentTarget.style.transform = 'none'; }}
+                  <button type="submit" disabled={isSubmitting} style={{ padding: '15px', fontSize: '12px', width: '100%', background: 'linear-gradient(135deg, #0073e6, #3395f0)', color: '#fff', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', borderRadius: '6px', border: 'none', cursor: isSubmitting ? 'not-allowed' : 'pointer', fontFamily: 'Inter, sans-serif', boxShadow: '0 4px 20px rgba(0,115,230,0.35)', transition: 'all 0.25s ease', opacity: isSubmitting ? 0.7 : 1 }}
+                    onMouseEnter={e => { if (!isSubmitting) { e.currentTarget.style.boxShadow = '0 6px 28px rgba(0,115,230,0.5)'; e.currentTarget.style.transform = 'translateY(-1px)'; } }}
+                    onMouseLeave={e => { if (!isSubmitting) { e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,115,230,0.35)'; e.currentTarget.style.transform = 'none'; } }}
                   >
-                    Send Enquiry
+                    {isSubmitting ? 'Sending...' : 'Send Enquiry'}
                   </button>
+                  {error && (
+                    <div style={{ color: '#ef4444', fontSize: '12px', textAlign: 'center', marginTop: '4px', fontWeight: 500 }}>
+                      {error}
+                    </div>
+                  )}
                   <p style={{ color: '#9ca3af', fontSize: '11px', textAlign: 'center', margin: 0 }}>
                     Your information is kept confidential and used only to respond to your enquiry.
                   </p>
@@ -137,6 +188,28 @@ export default function ContactClient() {
           .feature-card:hover{box-shadow:0 12px 36px rgba(0,115,230,0.10);transform:translateY(-4px);border-color:#bfdbfe!important}
           @media(max-width:900px){.contact-grid{grid-template-columns:1fr!important}}
           @media(max-width:560px){.form-grid{grid-template-columns:1fr!important}}
+          
+          .phone-input-override {
+            display: flex;
+            align-items: center;
+            padding: 0 !important;
+            overflow: hidden;
+            background: #fff;
+          }
+          .phone-input-override .PhoneInputCountry {
+            padding: 12px 14px;
+            border-right: 1px solid #e5e7eb;
+            margin-right: 0;
+          }
+          .phone-input-override input {
+            border: none;
+            flex: 1;
+            padding: 12px 14px;
+            font-size: 14px;
+            outline: none;
+            background: transparent;
+            font-family: inherit;
+          }
         `}</style>
       </section>
     </>
