@@ -16,6 +16,7 @@ const cols = {
 };
 
 export default function Footer() {
+  const officeAddress = 'Maheshwari Global Exports, Sarada nivas, Street no. 2, New Ashram Rd, Narayan nagar, Rajkot, Gujarat 360005';
   return (
     <footer style={{ background: 'var(--color-bg-dark)', color: 'var(--color-text-footer)', position: 'relative', overflow: 'hidden' }}>
       {/* Blue top border */}
@@ -62,7 +63,7 @@ export default function Footer() {
             <h3 style={{ color: 'var(--color-bg-white)', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '18px', marginTop: 0 }}>Contact</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '13px' }}>
               {[
-                { icon: '📍', text: 'Rajkot, Gujarat, India' },
+                { icon: '📍', text: officeAddress },
                 { icon: '✉️', text: 'info@mgeglobal.in' },
                 { icon: '📞', text: ['+91 80000 30307', '+91 91044 85504'] },
               ].map(c => (

@@ -58,7 +58,7 @@ export default function Markets() {
           <AnimatedSection>
             <div className="badge-dark" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '24px' }}>
               <span style={{ width: '6px', height: '6px', background: 'rgba(255,255,255,0.6)', borderRadius: '50%', display: 'inline-block' }} />
-              20+ Markets · 4 Regions
+              20+ Target Markets · 4 Regions
             </div>
             <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 900, color: '#fff', fontFamily: 'Poppins, sans-serif', marginBottom: '24px', maxWidth: '800px', lineHeight: 1.1 }}>
               Export Markets — GCC,<br />Middle East, Africa &amp; Asia

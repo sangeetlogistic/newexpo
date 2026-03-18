@@ -5,8 +5,11 @@ import AnimatedSection from '@/components/AnimatedSection';
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 
+const officeAddress = 'Maheshwari Global Exports, Sarada nivas, Street no. 2, New Ashram Rd, Narayan nagar, Rajkot, Gujarat 360005';
+const encodedOfficeAddress = encodeURIComponent(officeAddress);
+
 const contactInfo = [
-  { icon: '📍', label: 'Office Address', value: 'Rajkot, Gujarat, India', sub: 'Headquarters' },
+  { icon: '📍', label: 'Office Address', value: officeAddress, sub: 'Headquarters' },
   { icon: '✉️', label: 'Email Address', value: 'info@mgeglobal.in', sub: 'We respond within 24 hours' },
   { icon: '📞', label: 'Phone', value: ['+91 80000 30307', '+91 91044 85504'], sub: 'Mon–Sat, 9 AM – 6 PM IST' },
 ];
@@ -184,6 +187,39 @@ export default function ContactClient() {
             </div>
           </AnimatedSection>
         </div>
+        <AnimatedSection delay={220}>
+          <div style={{ maxWidth: '1280px', margin: '32px auto 0' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e8eaed', borderRadius: '14px', overflow: 'hidden', position: 'relative', boxShadow: '0 4px 24px rgba(0,0,0,0.05)' }}>
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #0073e6, #3395f0)' }} />
+              <div style={{ padding: '28px 28px 20px' }}>
+                <div style={{ width: '36px', height: '3px', background: 'linear-gradient(90deg, #0073e6, #3395f0)', borderRadius: '2px', marginBottom: '14px' }} />
+                <h2 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, color: '#0a0a0a', fontSize: '22px', margin: '0 0 8px' }}>Our Location</h2>
+                <p style={{ color: '#6b7280', fontSize: '14px', lineHeight: 1.7, margin: '0 0 16px' }}>{officeAddress}</p>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodedOfficeAddress}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: '#0073e6', fontWeight: 700, fontSize: '13px', textDecoration: 'none', borderBottom: '2px solid #bfdbfe', paddingBottom: '2px' }}
+                >
+                  Open in Google Maps
+                </a>
+              </div>
+              <div style={{ padding: '0 28px 28px' }}>
+                <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid #e5e7eb' }}>
+                  <iframe
+                    title="Maheshwari Global Exports office location"
+                    src={`https://www.google.com/maps?q=${encodedOfficeAddress}&z=16&output=embed`}
+                    width="100%"
+                    height="420"
+                    style={{ border: 0, display: 'block' }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
         <style>{`
           .feature-card:hover{box-shadow:0 12px 36px rgba(0,115,230,0.10);transform:translateY(-4px);border-color:#bfdbfe!important}
           @media(max-width:900px){.contact-grid{grid-template-columns:1fr!important}}

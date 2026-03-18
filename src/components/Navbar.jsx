@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import Image from 'next/image';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -26,8 +25,6 @@ export default function Navbar() {
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  useEffect(() => { setMenuOpen(false); }, [pathname]);
 
   // On home page: transparent until scrolled; on other pages: always white
   const solidNav = scrolled || !isHome;
@@ -68,6 +65,7 @@ export default function Navbar() {
               <Link
                 key={link.path}
                 href={link.path}
+                onClick={() => setMenuOpen(false)}
                 style={{
                   color: pathname === link.path
                     ? 'var(--color-primary)'
@@ -119,6 +117,7 @@ export default function Navbar() {
             <Link
               key={link.path}
               href={link.path}
+              onClick={() => setMenuOpen(false)}
               style={{
                 display: 'block', padding: '11px 14px',
                 color: pathname === link.path ? 'var(--color-primary)' : 'var(--color-text-body)',

@@ -2,11 +2,11 @@ export default function robots() {
   return {
     rules: [
       {
-        userAgent: '*',
-        allow: '/',
+        userAgent: "*",
+        allow: "/",
       },
     ],
-    sitemap: 'https://www.maheshwariglobalexports.com/sitemap.xml',
-    host: 'https://www.maheshwariglobalexports.com',
+    sitemap: "https://www.mgeglobal.in/sitemap.xml",
+    host: "https://www.mgeglobal.in",
   };
 }

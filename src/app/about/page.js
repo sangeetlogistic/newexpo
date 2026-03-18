@@ -50,7 +50,7 @@ export default function About() {
           <AnimatedSection>
             <div className="badge-dark" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '24px' }}>
               <span style={{ width: '6px', height: '6px', background: 'rgba(255,255,255,0.6)', borderRadius: '50%', display: 'inline-block' }} />
-              Est. 2026 · Rajkot, Gujarat
+              New Generation Export House · Rajkot, Gujarat
             </div>
             <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 900, color: '#fff', fontFamily: 'Poppins, sans-serif', marginBottom: '24px', maxWidth: '750px', lineHeight: 1.1 }}>
               About Maheshwari<br />Global Exports
@@ -61,7 +61,7 @@ export default function About() {
           </AnimatedSection>
           <AnimatedSection delay={200}>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '48px' }}>
-              {[{ value: 'Gujarat', label: 'Headquartered' }, { value: '2026', label: 'Founded' }, { value: '20+', label: 'Markets' }, { value: '50+', label: 'Products' }].map(s => (
+              {[{ value: 'Gujarat', label: 'Headquartered' }, { value: '2026', label: 'Founded' }, { value: '20+', label: 'Target Markets' }, { value: '50+', label: 'Products' }].map(s => (
                 <div key={s.label} style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(8px)', borderRadius: '8px', padding: '18px 28px', textAlign: 'center', minWidth: '120px' }}>
                   <div style={{ fontSize: '1.5rem', fontWeight: 900, fontFamily: 'Poppins, sans-serif', color: '#fff', lineHeight: 1 }}>{s.value}</div>
                   <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.14em', marginTop: '6px', fontWeight: 500 }}>{s.label}</div>
@@ -102,7 +102,7 @@ export default function About() {
                 <Image src={imgReal} alt="Workers processing export-quality green bananas" fill style={{ objectFit: 'cover', objectPosition: 'center' }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 40%)' }} />
                 <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px' }}>
-                  <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '6px' }}>EST. 2026</div>
+                  <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '6px' }}>New Generation Export House</div>
                   <div style={{ color: '#fff', fontWeight: 700, fontFamily: 'Poppins, sans-serif', fontSize: '16px' }}>Rajkot, Gujarat — India&apos;s Export Hub</div>
                 </div>
               </div>
@@ -131,7 +131,7 @@ export default function About() {
               <div style={{ width: '36px', height: '3px', background: 'linear-gradient(90deg, #0073e6, #3395f0)', borderRadius: '2px', margin: '0 auto 16px' }} />
               <p style={{ color: '#0073e6', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.18em', marginBottom: '12px' }}>The Leadership</p>
               <h2 id="founders-heading" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 800, color: '#0a0a0a', fontFamily: 'Poppins, sans-serif', marginBottom: '12px' }}>Meet Our Founders</h2>
-              <p style={{ color: '#6b7280', maxWidth: '480px', margin: '0 auto', lineHeight: 1.8 }}>Two complementary skill sets driving structured export operations.</p>
+              <p style={{ color: '#6b7280', maxWidth: '480px', margin: '0 auto', lineHeight: 1.8 }}>Two founders. One mission. Zero compromise on quality.</p>
             </div>
           </AnimatedSection>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }} className="two-col">

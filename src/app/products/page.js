@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
+import ComplianceCertificates from '@/components/ComplianceCertificates';
 import { buildMetadata, breadcrumbSchema, productSchema } from '@/lib/seo';
 import imgRice from '../../../public/assets/basmati-rice.jpg';
 import imgSpices from '../../../public/assets/spices.jpg';
@@ -90,6 +91,8 @@ export default function Products() {
           </AnimatedSection>
         </div>
       </section>
+
+      <ComplianceCertificates />
 
       {/* ── CATEGORIES ── */}
       <section aria-labelledby="products-heading" style={{ padding: '100px 2rem', background: 'var(--color-bg-white)' }}>
