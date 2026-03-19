@@ -30,6 +30,15 @@ export const metadata = {
   keywords:
     "agricultural exporter from india, rice exporter india, spice exporter india, pulses exporter india, merchant exporter india, gujarat export company, b2b agricultural exporter, basmati rice exporter, indian turmeric exporter",
   robots: { index: true, follow: true },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-48x48.png", type: "image/png", sizes: "48x48" },
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    shortcut: ["/favicon.ico"],
+  },
   openGraph: {
     type: "website",
     locale: "en_US",

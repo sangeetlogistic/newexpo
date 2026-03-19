@@ -57,6 +57,7 @@ export const organizationSchema = {
   name: SITE_NAME,
   url: BASE_URL,
   logo: `${BASE_URL}/logo.png`,
+  image: `${BASE_URL}/logo.png`,
   description:
     "Gujarat-based merchant export house specializing in structured sourcing and quality-verified international trade of rice, spices, pulses, and fresh produce.",
   address: {
